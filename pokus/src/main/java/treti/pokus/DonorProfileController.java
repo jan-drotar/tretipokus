@@ -13,8 +13,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 
 public class DonorProfileController {
-	
-	private List<Notifikation> notifikations = new ArrayList<>();
 
 	@FXML
     private Button editProfileButton;
@@ -44,26 +42,12 @@ public class DonorProfileController {
     private ListView<Notifikation> messageFromPhysicianListView;
 
 
-    public DonorProfileController() {
-		Notifikation n = new Notifikation();
-		n.setId(1);
-		n.setSprava("Prvy message");
-		n.setLekar("LEKAR");
-		notifikations.add(n);
-		Notifikation n2 = new Notifikation();
-		n2.setId(2);
-		n2.setSprava("Druhy message");
-		n2.setLekar("LEKAR 2");
-		notifikations.add(n2);
-	}
-
     @FXML
     private Label dateOfLastDonationLabel;
 
     @FXML
     void initialize() {
-    	messageFromPhysicianListView.setItems(FXCollections.observableArrayList(notifikations));
-    	
+    	   	
     	editProfileButton.setOnAction(new EventHandler<ActionEvent>() {
 			///////////////////////////////////////////////////////////////// edit spusti donor edit control s prednastavenymi udajmi ++ nazvy buttonov pomenit na update abo co
 			@Override
@@ -76,4 +60,27 @@ public class DonorProfileController {
         signOutButton.setOnAction(new LogOutHandler());
 
     }
+    
+    public void setNameLabel (String n) {
+        nameLabel.setText(n);
+    }
+    public void setSurnameLabel (String n) {
+        surnameLabel.setText(n);
+    }
+    public void setEmailLabel (String n) {
+        emailLabel.setText(n);
+    }
+    public void setBloodTypeLabel (String n) {
+        bloodTypeLabel.setText(n);
+    }
+    public void setDonationsCountLabel (String n) {
+        donationsCountLabel.setText(n);
+    }
+    public void setDaysTilNextDonations (String n) {
+        daysTilNextDonationLabel.setText(n);
+    }
+    public void setMessagesFromPhysician(List n) {
+    	messageFromPhysicianListView.setItems(FXCollections.observableArrayList(n));
+    }
+    
 }

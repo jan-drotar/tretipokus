@@ -1,6 +1,7 @@
 package treti.pokus;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,19 +9,42 @@ import javafx.beans.binding.Bindings;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
 
 public class DonorEditController {
+	
+	private List<Notifikation> notifikations = new ArrayList<>();
 	
 	private List<Participant> donors = new ArrayList<>();
 	private ParticipantDAO pdao = new ParticipantDAO();		  	
 	
 	private ParticipantFxModel editedDonor = new ParticipantFxModel();
+	
+	public DonorEditController() {
+		// T////////////////////////////////////////////// zatial to tu necham
+		Notifikation n = new Notifikation();
+		n.setId(1);
+		n.setSprava("Prvy message");
+		n.setLekar("LEKAR");
+		notifikations.add(n);
+		Notifikation n2 = new Notifikation();
+		n2.setId(2);
+		n2.setSprava("Druhy message");
+		n2.setLekar("LEKAR 2");
+		notifikations.add(n2);
+	
+	}
 	
 	@FXML
     private Button updateRegisterButton;
@@ -85,6 +109,7 @@ public class DonorEditController {
 				try {
 					Participant donor = editedDonor.getDonor();
 					pdao.addParticipant(donor);
+					
 					donors = pdao.getAll();
 					
 					for (Participant participant : donors) {
@@ -93,6 +118,31 @@ public class DonorEditController {
 					System.out.println("###################################");
 				} catch (NullPointerException e) {
 					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				try {
+					((Node)(event.getSource())).getScene().getWindow().hide();
+					//DonorProfileController profileController = new DonorProfileController();
+					FXMLLoader fxmlLoader = new FXMLLoader(
+							getClass().getResource("DonorProfile.fxml"));
+					AnchorPane apane = fxmlLoader.load();
+					DonorProfileController profileController = fxmlLoader.getController();
+					//profileController.setNameLabel(nameTextField.getText());////////////////////////////////
+					profileController.setSurnameLabel("HALO");
+					//profileController.setEmailLabel(emailTextField.getText());
+					//profileController.setBloodTypeLabel(bloodTypeCombobox.getValue());
+					// este dni a donationa////////////////////////////////////////////////////////////////
+					//profileController.setMessagesFromPhysician(notifikations);
+					Parent rootPane = fxmlLoader.load();
+					Scene scene = new Scene(rootPane);
+					Stage stage = new Stage();
+					stage.setTitle("Edit profile.");
+					stage.setScene(scene);
+					stage.show();
+					stage.setResizable(false);
+				} catch (IOException e) {
+					// 
 					e.printStackTrace();
 				}
 			}
