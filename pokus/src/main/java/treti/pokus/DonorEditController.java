@@ -20,37 +20,6 @@ public class DonorEditController {
 	private List<Participant> donors = new ArrayList<>();
 	private ParticipantDAO pdao = new ParticipantDAO();		  	
 	
-	public DonorEditController() {
-		
-		Participant p = new Participant();
-		p.setRole(Role.DONOR);
-		p.setBloodType(BloodType.O_POS);
-		p.setName("Jano");
-		p.setSurname("Drotar");
-		p.setInsuranceID("123456");
-		p.setEmail("jano.drotar@gmail.com");
-		p.setPassword("123");
-		////////////////////////////////////////////////////////p.setDateOfBirth(dateOfBirth);
-		p.setGender(Gender.MALE);
-		p.setWeight(115.5);
-		///////////////////////////////////////////date of last donation
-		pdao.addParticipant(p);
-		
-		Participant p2 = new Participant();
-		p2.setRole(Role.DONOR);
-		p2.setBloodType(BloodType.AB_POS);
-		p2.setName("Homer");
-		p2.setSurname("Simpson");
-		p2.setInsuranceID("565656");
-		p2.setEmail("sexy.meda@aol.com");
-		p2.setPassword("123");
-		////////////////////////////////////////////////////////p.setDateOfBirth(dateOfBirth);
-		p2.setGender(Gender.MALE);
-		p2.setWeight(130);
-		///////////////////////////////////////////date of last donation
-		pdao.addParticipant(p2);
-	}
-	
 	private ParticipantFxModel editedDonor = new ParticipantFxModel();
 	
 	@FXML
@@ -112,12 +81,19 @@ public class DonorEditController {
 			@Override
 			//////////////////////////////////////////////////////ulozit noveho donora alebo update?????? a otvori donor profil controller
 			public void handle(ActionEvent event) {
-				Participant donor = editedDonor.getDonor();
-				pdao.addParticipant(donor);
-				donors.addAll(pdao.getAll());
 				
-				for (Participant participant : donors) {
-					System.out.println(participant.toString());
+				try {
+					Participant donor = editedDonor.getDonor();
+					pdao.addParticipant(donor);
+					donors = pdao.getAll();
+					
+					for (Participant participant : donors) {
+						System.out.println(participant.toString());
+					}
+					System.out.println("###################################");
+				} catch (NullPointerException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
 				}
 			}
 		});
@@ -125,4 +101,7 @@ public class DonorEditController {
         signOutButton.setOnAction(new LogOutHandler());
         
     }
+    
+    
+    
 }
