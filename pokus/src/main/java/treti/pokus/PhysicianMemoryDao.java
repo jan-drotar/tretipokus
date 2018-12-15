@@ -1,6 +1,7 @@
 package treti.pokus;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 public class PhysicianMemoryDao implements PhysicianDao {
@@ -35,42 +36,46 @@ public class PhysicianMemoryDao implements PhysicianDao {
 	public List<Physician> getAll() {
 		return physicians;
 	}
+
 	// count
 	public int physicianCount() {
 		return physicians.size();
 	}
 
-	public Physician findPhysicianById(Integer id) {
+	public Physician findPhysicianById(Long id) {
 		for (int i = 0; i < physicians.size(); i++) {
-//			if (physicians.get(i).getId() == id)
+			if (physicians.get(i).getId() == id)
 				return physicians.get(i);
 		}
 		return null;
 	}
 
 	@Override
-	public Physician findById(Integer id) {
-		// TODO Auto-generated method stub
-		return null;
+	public void save(Physician physician) {
+		if (physician != null) {
+			if (physician.getId() == null) {
+				add(physician);
+			} else {
+				for (int i = 0; i < physicians.size(); i++) {
+					if (physicians.get(i).getId().equals(physician.getId())) {
+						physicians.set(i, physician);
+						break;
+					}
+				}
+			}
+		}
 	}
 
 	@Override
-	public List<Physician> findByName(String name) {
-		// TODO Auto-generated method stub
-		return null;
+	public void delete(long id) {
+		Iterator<Physician> it = physicians.iterator();
+		while (it.hasNext()) {
+			Physician p = it.next();
+			if (p.getId().equals(id)) {
+				it.remove();
+				return;
+			}
+		}
 	}
-
-	@Override
-	public List<Physician> findBySurname(String surName) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void delete(Physician physician) {
-		// TODO Auto-generated method stub
-		
-	}
-	
 
 }
