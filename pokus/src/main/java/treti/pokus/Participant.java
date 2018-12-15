@@ -14,7 +14,7 @@ public class Participant {
 	private String email; //
 	private String password; //
 	private LocalDate dateOfBirth; //
-	private String gender; //
+	private Gender gender; //
 	private double weight; //
 	private LocalDate dateOfLastDonation; // setuje lekar 
 	private int countOfDonations; // setuje lekar
@@ -95,11 +95,11 @@ public class Participant {
 		this.dateOfBirth = dateOfBirth;
 	}
 
-	public String getGender() {
+	public Gender getGender() {
 		return gender;
 	}
 
-	public void setGender(String gender) {
+	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
 

@@ -1,14 +1,11 @@
 package treti.pokus;
 
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class ParticipantFxModel {
-	//  id; //  asi netreba
-	
-	// role; //  /ENUM
-	
-	//  bloodType; // ENUM
 	
 //  name; //
 	StringProperty name = new SimpleStringProperty();
@@ -48,6 +45,19 @@ public class ParticipantFxModel {
 	public StringProperty insuranceIDProperty() {
 		return insuranceID;
 	}
+
+// bloodtype//
+	StringProperty bloodtype = new SimpleStringProperty();
+	
+	public String getBloodtype() {
+		return bloodtype.get();
+	}
+	public void setBloodtype(String n) {
+		this.setBloodtype(n);
+	}
+	public StringProperty bloodtypeProperty() {
+		return bloodtype;
+	}
 	
 //  email; //
 	StringProperty email = new SimpleStringProperty();
@@ -62,45 +72,76 @@ public class ParticipantFxModel {
 		return email;
 	}
 	
-//  password; //
-	StringProperty password = new SimpleStringProperty();
+//   NEW password; //
+	StringProperty newPassword = new SimpleStringProperty();
 	
-	public String getPassword() {
-		return password.get();
+	public String getNewPassword() {
+		return newPassword.get();
 	}
-	public void setPassword(String n) {
-		this.setPassword(n);
+	public void setNewPassword(String n) {
+		this.setNewPassword(n);
 	}
-	public StringProperty passwordProperty() {
-		return password;
+	public StringProperty newPasswordProperty() {
+		return newPassword;
 	}
 	
-	//  dateOfBirth; // DatePicker
+//   RETYPE password; //
+	StringProperty retypePassword = new SimpleStringProperty();
 	
-	//  gender; // ENUM
+	public String getRetypePassword() {
+		return retypePassword.get();
+	}
+	public void setRetypePassword(String n) {
+		this.setRetypePassword(n);
+	}
+	public StringProperty retypePasswordProperty() {
+		return retypePassword;
+	}
 	
-	//  weight; // integer
+	//  dateOfBirth; // DatePicker////////////////////////////////////////////////////////////////////////////
 	
-	//  dateOfLastDonation; // setuje lekar
+//  gender;
+	StringProperty gender = new SimpleStringProperty();
 	
-	//  countOfDonations; // setuje lekar asi
+	public String getGender() {
+		return gender.get();
+	}
+	public void setGender(String n) {
+		this.setGender(n);
+	}
+	public StringProperty genderProperty() {
+		return gender;
+	}
+
 	
-	//  approved; // setuje lekar BOOLEAN
+//  weight; //
+	DoubleProperty weight = new SimpleDoubleProperty();
 	
-	//List<Notifikation> listOfNotifikations = new ArrayList<>(); TU NEVIEM
-	
-	public Participant getParticipant() {
+	public Double getWeight() {
+		return weight.get();
+	}
+	public void setWeight(Double n) {
+		this.setWeight(n);
+	}
+	public DoubleProperty weightProperty() {
+		return weight;
+	}
+		
+	public Participant getDonor() {
+		
 		Participant p = new Participant();
 		// id
-		// rola
+		p.setRole(Role.DONOR);
 		// bloodtype
 		p.setName(getName());
 		p.setSurname(getSurname());
 		p.setInsuranceID(getInsuranceID());
 		p.setEmail(getEmail());
-		p.setPassword(getPassword());
-		//  dateOfBirth
-		//  gender
+		if (getNewPassword().equals(getRetypePassword())) {
+			p.setPassword(getNewPassword());
+		}///////////////////////////////////////////////////////////// inac chyba
+		//  dateOfBirth///////////////////////////////////////////////// datum narodenia
+		//p.setGender(Gender(getGender());
 		//  weight
 		//  dateOfLastDonation
 		//  countOfDonations
