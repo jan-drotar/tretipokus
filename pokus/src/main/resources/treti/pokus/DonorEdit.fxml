@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="250.0" layoutY="48.0" text="Registrton/Update Page Of Donor" AnchorPane.topAnchor="50.0">
+         <font>
+            <Font size="20.0" />
+         </font></Label>
+      <Label layoutX="41.0" layoutY="148.0" text="Name: " AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="nameTextField" layoutX="172.0" layoutY="146.0" prefHeight="25.0" prefWidth="550.0" />
+      <Label layoutX="41.0" layoutY="182.0" text="Surname: " AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="surnameTextField" layoutX="172.0" layoutY="180.0" prefHeight="25.0" prefWidth="550.0" />
+      <Label layoutX="41.0" layoutY="219.0" text="Insurance ID No.:" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="insuranceIDTextfield" layoutX="172.0" layoutY="217.0" prefHeight="25.0" prefWidth="550.0" />
+      <Label layoutX="41.0" layoutY="255.0" text="Blood type: " AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <ComboBox fx:id="bloodTypeCombobox" layoutX="174.0" layoutY="253.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="41.0" layoutY="291.0" text="Email address: " AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <TextField fx:id="emailTextField" layoutX="174.0" layoutY="289.0" prefHeight="25.0" prefWidth="550.0" />
+      <Label layoutX="41.0" layoutY="323.0" text="New password:" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="passwordField" layoutX="174.0" layoutY="321.0" prefHeight="25.0" prefWidth="550.0" />
+      <Label layoutX="41.0" layoutY="355.0" text="Retype password:" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font></Label>
+      <PasswordField fx:id="retypePasswordField" layoutX="172.0" layoutY="353.0" prefHeight="25.0" prefWidth="550.0" />
+      <Label layoutX="41.0" layoutY="386.0" text="Date of birth:" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dateOfBirthPicker" layoutX="174.0" layoutY="384.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="41.0" layoutY="418.0" text="Gender:" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="genderCombobox" layoutX="174.0" layoutY="416.0" prefWidth="150.0" />
+      <Label layoutX="41.0" layoutY="453.0" text="Weight:" AnchorPane.leftAnchor="41.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="weightTextField" layoutX="174.0" layoutY="451.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="330.0" layoutY="395.0" text="Kg.">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <Button fx:id="updateRegisterButton" layoutX="528.0" layoutY="519.0" mnemonicParsing="false" text="Update/Register">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+      <Button fx:id="signOutButton" layoutX="612.0" layoutY="551.0" mnemonicParsing="false" text="Sign Out" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="50.0">
+         <font>
+            <Font size="15.0" />
+         </font></Button>
+   </children>
+</AnchorPane>

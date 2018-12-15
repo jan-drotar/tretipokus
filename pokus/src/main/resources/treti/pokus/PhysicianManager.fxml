@@ -1,0 +1,533 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1">
+  <tabs>
+    <Tab text="Blood Donations Registration">
+         <content>
+            <ScrollPane prefHeight="900.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="937.0" prefWidth="786.0">
+                     <children>
+                        <Label layoutX="25.0" layoutY="33.0" text="Logged in physician:" textFill="#0000009a" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pNameLabel1a" layoutX="48.0" layoutY="86.0" prefHeight="21.0" prefWidth="181.0" text="name" textFill="#0000009a" AnchorPane.leftAnchor="198.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pSurnameLabel1a" layoutX="9.0" layoutY="168.0" prefHeight="21.0" prefWidth="181.0" text="surname" textFill="#0000009a" AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="pLogOutButton1a" layoutX="471.0" layoutY="193.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="124.0" text="Log Out" textFill="#ff0051" AnchorPane.leftAnchor="631.0" AnchorPane.topAnchor="80.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="285.0" layoutY="50.0" prefHeight="30.0" prefWidth="254.0" text="Blood Donation Registration" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="247.0" AnchorPane.topAnchor="50.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="48.0" layoutY="237.0" text="Find donor in the list of donors:" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="170.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="findDonByInsuranceIDTextField" layoutX="189.0" layoutY="247.0" prefHeight="31.0" prefWidth="222.0" promptText="by the Number of Insurance ID" AnchorPane.leftAnchor="247.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="findDonBySurnameTextField" layoutX="359.0" layoutY="247.0" prefHeight="25.0" prefWidth="181.0" promptText="by Surname" AnchorPane.leftAnchor="506.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="492.0" layoutY="237.0" prefHeight="21.0" prefWidth="21.0" text="Or" AnchorPane.leftAnchor="480.0" AnchorPane.topAnchor="171.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="findDonInDonListrButton" layoutX="570.0" layoutY="247.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Find" AnchorPane.leftAnchor="693.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="listOfDonorsTableView" layoutX="99.0" layoutY="829.0" prefHeight="170.0" prefWidth="727.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="205.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                        <Button fx:id="clearListOfDonorsButton" layoutX="655.0" layoutY="392.0" mnemonicParsing="false" text="Clear the list" AnchorPane.leftAnchor="655.0" AnchorPane.topAnchor="392.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="274.0" layoutY="435.0" text="Or Register a new Donation" textFill="#00000099" AnchorPane.leftAnchor="274.0" AnchorPane.topAnchor="435.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="488.0" text="Name:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="489.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="518.0" text="Surname: " AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="527.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="556.0" text="Insurance ID No.:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="565.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="591.0" text="Blood type: " AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="600.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="624.0" text="Date of birth:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="633.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="31.0" layoutY="657.0" text="Gender:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="666.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="donsNewNameTextField" layoutX="160.0" layoutY="484.0" prefHeight="31.0" prefWidth="546.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="484.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="donsNewSurnameTextField" layoutX="160.0" layoutY="522.0" prefHeight="31.0" prefWidth="546.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="522.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="donsNewInsuranceIDTextField" layoutX="160.0" layoutY="560.0" prefHeight="31.0" prefWidth="546.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="560.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="donsNewBloodTypeCombobox" layoutX="160.0" layoutY="598.0" prefWidth="150.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="598.0" />
+                        <DatePicker fx:id="donsNewDateOfBirthDatePicker" layoutX="160.0" layoutY="631.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="631.0" />
+                        <ComboBox fx:id="donsNewGenderCombo" layoutX="160.0" layoutY="664.0" prefWidth="150.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="664.0" />
+                        <Separator layoutX="29.0" layoutY="848.0" prefHeight="4.0" prefWidth="735.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="848.0" />
+                        <Separator layoutX="156.0" layoutY="470.0" prefWidth="200.0" AnchorPane.leftAnchor="555.0" AnchorPane.topAnchor="448.0" />
+                        <Separator layoutX="170.0" layoutY="449.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="450.0" />
+                        <Label layoutX="306.0" layoutY="329.0" text="Find Donor" textFill="#00000099" AnchorPane.leftAnchor="337.0" AnchorPane.topAnchor="124.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="10.0" layoutY="153.0" prefHeight="0.0" prefWidth="291.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="137.0" />
+                        <Separator layoutX="455.0" layoutY="153.0" prefHeight="1.0" prefWidth="297.0" AnchorPane.leftAnchor="455.0" AnchorPane.topAnchor="138.0" />
+                        <Label layoutX="103.0" layoutY="777.0" text="Type of Blood Donation:" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="782.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="regTypeOfBloodDonationCombobox" layoutX="312.0" layoutY="780.0" prefWidth="150.0" />
+                        <Button fx:id="regTypeOfBloodDonationRegisterButton" layoutX="502.0" layoutY="777.0" mnemonicParsing="false" text="Register" AnchorPane.leftAnchor="502.0" AnchorPane.topAnchor="777.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="29.0" layoutY="1054.0" prefHeight="4.0" prefWidth="735.0" />
+                        <Label layoutX="31.0" layoutY="873.0" text="Logged in physician:" textFill="#0000009a">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pNameLabel1b" layoutX="200.0" layoutY="873.0" prefHeight="21.0" prefWidth="181.0" text="name" textFill="#0000009a">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pSurnameLabel1b" layoutX="410.0" layoutY="873.0" prefHeight="21.0" prefWidth="181.0" text="surname" textFill="#0000009a" AnchorPane.leftAnchor="410.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="pLogOutButton1b" layoutX="631.0" layoutY="870.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="124.0" text="Log Out" textFill="#ff0051" AnchorPane.leftAnchor="631.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                        <Separator layoutX="29.0" layoutY="713.0" prefHeight="4.0" prefWidth="735.0" />
+                        <Label layoutX="32.0" layoutY="733.0" text="Selected donor:" textFill="#ff0051c3" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="736.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="selectedDonNameLabel" layoutX="201.0" layoutY="733.0" prefHeight="21.0" prefWidth="181.0" text="name" textFill="#ff0051c3" AnchorPane.leftAnchor="198.0" AnchorPane.topAnchor="736.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="selectedDonSurnameLabel" layoutX="411.0" layoutY="733.0" prefHeight="21.0" prefWidth="181.0" text="surname" textFill="#ff0051c2" AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="736.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="selectedDonBloodTypeLabel" prefHeight="25.0" prefWidth="159.0" text="blood type" textFill="#ff0051c2" AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="736.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+         </content></Tab>
+      <Tab text="Donation Approval Manager">
+         <content>
+            <ScrollPane prefHeight="900.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="665.0" prefWidth="786.0">
+                     <children>
+                        <Label layoutX="29.0" layoutY="83.0" text="Logged in physician:" textFill="#00000099" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pNameLabel2a" layoutX="198.0" layoutY="83.0" prefHeight="21.0" prefWidth="181.0" text="name" textFill="#00000099" AnchorPane.leftAnchor="198.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pSurnameLabel2a" layoutX="410.0" layoutY="83.0" prefHeight="21.0" prefWidth="181.0" text="surname" textFill="#00000099" AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="pLogOutButton2a" layoutX="631.0" layoutY="80.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="124.0" text="Log Out" textFill="#ff0051" AnchorPane.leftAnchor="631.0" AnchorPane.topAnchor="80.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="282.0" layoutY="50.0" prefHeight="30.0" prefWidth="254.0" text="Donation Approval Manager" AnchorPane.leftAnchor="282.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="50.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="29.0" layoutY="170.0" text="Find untested donation:" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="170.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="findUntestedDonationByIDTextField" layoutX="193.0" layoutY="165.0" prefHeight="31.0" prefWidth="222.0" promptText="by ID of donation" AnchorPane.leftAnchor="193.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Button fx:id="findUntestedDonationButton" layoutX="423.0" layoutY="165.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Find" AnchorPane.leftAnchor="423.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="untestedDonatinsTableview" layoutX="30.0" layoutY="205.0" prefHeight="129.0" prefWidth="727.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="205.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="30.0" layoutY="357.0" text="Selected blood donation:" textFill="#ff0051c3" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="357.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="donationIDLabel" layoutX="228.0" layoutY="357.0" prefHeight="21.0" prefWidth="181.0" text="ID of donation" textFill="#ff0051c3" AnchorPane.leftAnchor="228.0" AnchorPane.topAnchor="357.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="289.0" layoutY="123.0" text="Untested Donations" textFill="#00000099" AnchorPane.leftAnchor="289.0" AnchorPane.topAnchor="123.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="29.0" layoutY="140.0" prefHeight="0.0" prefWidth="236.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="140.0" />
+                        <Separator layoutX="491.0" layoutY="138.0" prefHeight="0.0" prefWidth="261.0" AnchorPane.leftAnchor="491.0" AnchorPane.topAnchor="138.0" />
+                        <Separator layoutX="30.0" layoutY="571.0" prefHeight="4.0" prefWidth="735.0" />
+                        <Label layoutX="31.0" layoutY="604.0" text="Logged in physician:" textFill="#00000099">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pNameLabel2b" layoutX="200.0" layoutY="604.0" prefHeight="21.0" prefWidth="181.0" text="name" textFill="#00000099">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pSurnameLabel2b" layoutX="412.0" layoutY="604.0" prefHeight="21.0" prefWidth="181.0" text="surname" textFill="#00000099">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="donationBloodTypeLabel" layoutX="423.0" layoutY="357.0" prefHeight="21.0" prefWidth="181.0" text="blood type" textFill="#ff0051c3">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="approveForDonationButton" layoutX="261.0" layoutY="419.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="238.0" text="Approve for donation" textFill="GREEN">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="disapproveDonationButton" layoutX="261.0" layoutY="480.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="237.0" text="Disapprove " textFill="#ff0051">
+                           <font>
+                              <Font name="System Bold" size="20.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="pLogOutButton2b" layoutX="633.0" layoutY="601.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="124.0" text="Log Out" textFill="#ff0051" AnchorPane.leftAnchor="633.0" AnchorPane.topAnchor="601.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </content>
+      </Tab>
+      <Tab text="Patient Manager">
+         <content>
+            <ScrollPane prefHeight="900.0">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="988.0" prefWidth="786.0">
+                     <children>
+                        <Label layoutX="29.0" layoutY="83.0" text="Logged in physician:" textFill="#00000099" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pNameLabel3a" layoutX="198.0" layoutY="83.0" prefHeight="21.0" prefWidth="181.0" text="name" textFill="#00000099" AnchorPane.leftAnchor="198.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pSurnameLabel3a" layoutX="410.0" layoutY="83.0" prefHeight="21.0" prefWidth="181.0" text="surname" textFill="#00000099" AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="83.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="pLogOutButton3a" layoutX="631.0" layoutY="80.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="124.0" text="Log Out" textFill="#ff0051" AnchorPane.leftAnchor="631.0" AnchorPane.topAnchor="80.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="317.0" layoutY="50.0" text="Patient Manager" AnchorPane.leftAnchor="317.0" AnchorPane.rightAnchor="323.0" AnchorPane.topAnchor="50.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="29.0" layoutY="170.0" text="Find patient in the list of donors:" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="170.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="findPatientInDonListByInsuranceIDTextField" layoutX="247.0" layoutY="165.0" prefHeight="31.0" prefWidth="222.0" promptText="by the Number of Insurance ID" AnchorPane.leftAnchor="247.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="findPatientInDonListBySurnameTextField" layoutX="506.0" layoutY="165.0" prefHeight="25.0" prefWidth="181.0" promptText="by Surname" AnchorPane.leftAnchor="506.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <Label layoutX="480.0" layoutY="171.0" prefHeight="21.0" prefWidth="21.0" text="Or" AnchorPane.leftAnchor="480.0" AnchorPane.topAnchor="171.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="findPatientInDonListButton" layoutX="693.0" layoutY="165.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Find" AnchorPane.leftAnchor="693.0" AnchorPane.topAnchor="165.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <TableView fx:id="listOfDonsToPatientTableView" layoutX="30.0" layoutY="205.0" prefHeight="170.0" prefWidth="727.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="205.0">
+                           <columns>
+                              <TableColumn prefWidth="75.0" text="C1" />
+                              <TableColumn prefWidth="75.0" text="C2" />
+                           </columns>
+                        </TableView>
+                        <Label layoutX="26.0" layoutY="397.0" text="Mark the selected donor as patient:" AnchorPane.leftAnchor="26.0" AnchorPane.topAnchor="397.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="markDonAsPatientConfirmButton" layoutX="272.0" layoutY="392.0" mnemonicParsing="false" text="Confirm" AnchorPane.leftAnchor="272.0" AnchorPane.topAnchor="392.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="clearlistOfDonsToPatientButton" layoutX="655.0" layoutY="378.0" mnemonicParsing="false" text="Clear the list" AnchorPane.leftAnchor="655.0" AnchorPane.topAnchor="392.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="281.0" layoutY="434.0" text="Or Register a new Patient" textFill="#00000099" AnchorPane.leftAnchor="281.0" AnchorPane.topAnchor="434.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="489.0" text="Name:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="489.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="527.0" text="Surname: " AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="527.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="565.0" text="Insurance ID No.:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="565.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="600.0" text="Blood type: " AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="600.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="633.0" text="Date of birth:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="633.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="30.0" layoutY="666.0" text="Gender:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="666.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="29.0" layoutY="736.0" text="Selected patient:" textFill="#ff0051c3" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="736.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="selectedPatientNameLabel" layoutX="198.0" layoutY="736.0" prefHeight="21.0" prefWidth="181.0" text="name" textFill="#ff0051c3" AnchorPane.leftAnchor="198.0" AnchorPane.topAnchor="736.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="selectedPatientSurnameLabel" layoutX="410.0" layoutY="736.0" prefHeight="21.0" prefWidth="181.0" text="surname" textFill="#ff0051c2" AnchorPane.leftAnchor="410.0" AnchorPane.topAnchor="736.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="patientNewNameTextField" layoutX="154.0" layoutY="484.0" prefHeight="31.0" prefWidth="546.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="484.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="patientNewSurnameTextField" layoutX="154.0" layoutY="522.0" prefHeight="31.0" prefWidth="546.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="522.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="patientNewInsuranceIDTextField" layoutX="154.0" layoutY="560.0" prefHeight="31.0" prefWidth="546.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="560.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </TextField>
+                        <ComboBox fx:id="patientNewBloodTypeCombobox" layoutX="154.0" layoutY="598.0" prefWidth="150.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="598.0" />
+                        <DatePicker fx:id="patientNewDateOfBirthDatePicker" layoutX="154.0" layoutY="631.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="631.0" />
+                        <ComboBox fx:id="patientNewGenderCombobox" layoutX="154.0" layoutY="664.0" prefWidth="150.0" AnchorPane.leftAnchor="154.0" AnchorPane.topAnchor="664.0" />
+                        <Button fx:id="registerNewPatientButton" layoutX="598.0" layoutY="661.0" mnemonicParsing="false" text="Register" AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="661.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="100.0" layoutY="782.0" text="Type of Needed Transfusion:" AnchorPane.leftAnchor="102.0" AnchorPane.topAnchor="782.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <ComboBox fx:id="typeOfTransFusionCombobox" layoutX="314.0" layoutY="779.0" prefWidth="150.0" AnchorPane.leftAnchor="314.0" />
+                        <Label fx:id="selectedPatientBloodTypeLabel" layoutX="598.0" layoutY="736.0" prefHeight="25.0" prefWidth="159.0" text="blood type" textFill="#ff0051c2" AnchorPane.leftAnchor="598.0" AnchorPane.topAnchor="736.0">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="29.0" layoutY="713.0" prefHeight="4.0" prefWidth="735.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="713.0" />
+                        <Separator layoutX="30.0" layoutY="450.0" prefWidth="200.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="450.0" />
+                        <Separator layoutX="555.0" layoutY="448.0" prefWidth="200.0" AnchorPane.leftAnchor="555.0" AnchorPane.topAnchor="448.0" />
+                        <TextField fx:id="numberOfBloodUnitsTextField" layoutX="314.0" layoutY="808.0" prefHeight="25.0" prefWidth="151.0" AnchorPane.leftAnchor="314.0" />
+                        <Label layoutX="98.0" layoutY="811.0" text="Number of Units Needed:" AnchorPane.leftAnchor="102.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="337.0" layoutY="124.0" text="Find Patient" textFill="#00000099" AnchorPane.leftAnchor="337.0" AnchorPane.topAnchor="124.0">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="29.0" layoutY="137.0" prefHeight="0.0" prefWidth="291.0" AnchorPane.leftAnchor="29.0" AnchorPane.topAnchor="137.0" />
+                        <Separator layoutX="477.0" layoutY="138.0" prefHeight="0.0" prefWidth="275.0" AnchorPane.leftAnchor="477.0" AnchorPane.topAnchor="138.0" />
+                        <Button fx:id="assignUnitsButton" layoutX="314.0" layoutY="834.0" mnemonicParsing="false" text="Assign units" AnchorPane.leftAnchor="314.0">
+                           <font>
+                              <Font size="15.0" />
+                           </font>
+                        </Button>
+                        <Label layoutX="102.0" layoutY="840.0" text="Assign to selected patient:" AnchorPane.leftAnchor="102.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Label>
+                        <Separator layoutX="26.0" layoutY="895.0" prefHeight="4.0" prefWidth="735.0" />
+                        <Label layoutX="27.0" layoutY="928.0" text="Logged in physician:" textFill="#00000099">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pNameLabel3b" layoutX="196.0" layoutY="928.0" prefHeight="21.0" prefWidth="181.0" text="name" textFill="#00000099">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="pSurnameLabel3b" layoutX="408.0" layoutY="928.0" prefHeight="21.0" prefWidth="181.0" text="surname" textFill="#00000099">
+                           <font>
+                              <Font name="System Bold" size="16.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="pLogOutButton3b" layoutX="641.0" layoutY="90.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="124.0" text="Log Out" textFill="#ff0051" AnchorPane.leftAnchor="629.0" AnchorPane.topAnchor="925.0">
+                           <font>
+                              <Font name="System Bold" size="15.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>
