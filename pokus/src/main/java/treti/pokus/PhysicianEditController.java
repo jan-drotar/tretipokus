@@ -55,7 +55,7 @@ public class PhysicianEditController {
 	private Button signOutButton;
 
 	private PhysicianFXModel editedPhysician = new PhysicianFXModel();
-    private Physician selectedPhysician = null;
+//    private Physician selectedPhysician = null;
 
 	
 	@FXML
@@ -64,8 +64,8 @@ public class PhysicianEditController {
     	physicianNameTextField.textProperty().bindBidirectional(editedPhysician.nameProperty());
     	physicianSurnameTextField.textProperty().bindBidirectional(editedPhysician.surnameProperty());
 //    	TODO: change password properties
-//    	physicianPasswordField.textProperty().bindBidirectional(editedPhysician.passwordProperty());
-//    	physicianRetypePasswordField.textProperty().bindBidirectional(editedPhysician.passwordProperty());
+    	physicianPasswordField.textProperty().bindBidirectional(editedPhysician.newPasswordProperty());
+    	physicianRetypePasswordField.textProperty().bindBidirectional(editedPhysician.retypePasswordProperty());
     	
     	physicianUpdateRegisterButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
