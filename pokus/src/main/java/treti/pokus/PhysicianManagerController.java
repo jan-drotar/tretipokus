@@ -195,7 +195,7 @@ public class PhysicianManagerController {
     private Label pSurnameLabel3b;
 
         
-    private ParticipantDAO participantDao= new ParticipantDAO();
+    private ParticipantDAO participantDao = new ParticipantDAO();
     
     public PhysicianManagerController() {
 		

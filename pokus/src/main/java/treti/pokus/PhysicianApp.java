@@ -16,7 +16,7 @@ public class PhysicianApp extends Application {
 		fxmlLoader.setController(controller);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);
-		stage.setTitle("Hello World");
+		stage.setTitle("Physician Edit Menu");
 		stage.setScene(scene);
 		stage.show();
 	}

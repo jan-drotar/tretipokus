@@ -16,7 +16,7 @@ public class AppLoginPage extends Application {
 		fxmlLoader.setController(loginController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);
-		stage.setTitle("Sign in.");
+		stage.setTitle("Sign in");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);

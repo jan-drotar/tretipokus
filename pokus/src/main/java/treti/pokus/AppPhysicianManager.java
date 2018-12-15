@@ -16,7 +16,7 @@ public class AppPhysicianManager extends Application {
 		fxmlLoader.setController(managerController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);
-		stage.setTitle("Physicians Manager.");
+		stage.setTitle("Physicians Manager");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);

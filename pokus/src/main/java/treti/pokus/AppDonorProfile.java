@@ -16,7 +16,7 @@ public class AppDonorProfile extends Application {
 		fxmlLoader.setController(profileController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);
-		stage.setTitle("Edit profile.");
+		stage.setTitle("Edit profile");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);
