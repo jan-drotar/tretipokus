@@ -1,106 +1,121 @@
 package treti.pokus;
 
+import java.time.LocalDate;
+
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleDoubleProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class ParticipantFxModel {
 	
-//  name; //
+//  name //
 	StringProperty name = new SimpleStringProperty();
 	
 	public String getName() {
 		return name.get();
 	}
 	public void setName(String n) {
-		this.setName(n);
+		this.name.set(n);
 	}
 	public StringProperty nameProperty() {
 		return name;
 	}
 	
-//  surname; //
+//  surname //
 	StringProperty surname = new SimpleStringProperty();
 	
 	public String getSurname() {
 		return surname.get();
 	}
 	public void setSurname(String n) {
-		this.setSurname(n);
+		this.surname.set(n);
 	}
 	public StringProperty surnameProperty() {
 		return surname;
 	}
 	
-//  insuranceID; //
+//  insuranceID //
 	StringProperty insuranceID = new SimpleStringProperty();
 	
 	public String getInsuranceID() {
 		return insuranceID.get();
 	}
 	public void setInsuranceID(String n) {
-		this.setInsuranceID(n);
+		this.insuranceID.set(n);
 	}
 	public StringProperty insuranceIDProperty() {
 		return insuranceID;
 	}
 
-// bloodtype//
+// bloodtype //
 	StringProperty bloodtype = new SimpleStringProperty();
 	
 	public String getBloodtype() {
 		return bloodtype.get();
 	}
 	public void setBloodtype(String n) {
-		this.setBloodtype(n);
+		this.bloodtype.set(n);
 	}
 	public StringProperty bloodtypeProperty() {
 		return bloodtype;
 	}
 	
-//  email; //
+//  email  //
 	StringProperty email = new SimpleStringProperty();
 	
 	public String getEmail() {
 		return email.get();
 	}
 	public void setEmail(String n) {
-		this.setEmail(n);
+		this.email.set(n);
 	}
 	public StringProperty emailProperty() {
 		return email;
 	}
 	
-//   NEW password; //
+//   NEW password  //
 	StringProperty newPassword = new SimpleStringProperty();
 	
 	public String getNewPassword() {
 		return newPassword.get();
 	}
 	public void setNewPassword(String n) {
-		this.setNewPassword(n);
+		this.newPassword.set(n);
 	}
 	public StringProperty newPasswordProperty() {
 		return newPassword;
 	}
 	
-//   RETYPE password; //
+//   RETYPE password  //
 	StringProperty retypePassword = new SimpleStringProperty();
 	
 	public String getRetypePassword() {
 		return retypePassword.get();
 	}
 	public void setRetypePassword(String n) {
-		this.setRetypePassword(n);
+		this.retypePassword.set(n);
 	}
 	public StringProperty retypePasswordProperty() {
 		return retypePassword;
 	}
 	
-	//  dateOfBirth; // DatePicker////////////////////////////////////////////////////////////////////////////
+//  dateOfBirth //
+	ObjectProperty<LocalDate> dateOfBirth = new SimpleObjectProperty<>();
 	
-//  gender;
+	public LocalDate getDateOfBirth() {
+		return dateOfBirth.get();
+	}
+	public void setDateOfBirth(LocalDate n) {
+		this.dateOfBirth.set(n);
+	}
+	public ObjectProperty dateOfBirthProperty() {
+		return dateOfBirth;
+	}
+	
+//  gender  //
 	StringProperty gender = new SimpleStringProperty();
 	
 	public String getGender() {
@@ -129,26 +144,21 @@ public class ParticipantFxModel {
 		
 	public Participant getDonor() {
 		
-		Participant p = new Participant();
-		// id
-		p.setRole(Role.DONOR);
-		// bloodtype
-		p.setName(getName());
-		p.setSurname(getSurname());
-		p.setInsuranceID(getInsuranceID());
-		p.setEmail(getEmail());
+		Participant d = new Participant();
+		d.setRole(Role.DONOR);
+		d.setBloodType(BloodType.fromString(getBloodtype()));
+		d.setName(getName());
+		d.setSurname(getSurname());
+		d.setInsuranceID(getInsuranceID());
+		d.setEmail(getEmail());
 		if (getNewPassword().equals(getRetypePassword())) {
-			p.setPassword(getNewPassword());
+			d.setPassword(getNewPassword());
 		}///////////////////////////////////////////////////////////// inac chyba
-		//  dateOfBirth///////////////////////////////////////////////// datum narodenia
-		//p.setGender(Gender(getGender());
-		//  weight
-		//  dateOfLastDonation
-		//  countOfDonations
-		//  approved
-		//  list of notifikations
+		d.setDateOfBirth(getDateOfBirth());
+		d.setGender(Gender.fromString(getGender()));
+		d.setWeight(getWeight());
 		
-		return p;
+		return d;
 	}
 
 }

@@ -5,20 +5,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Participant {
-	private Long id; //
-	private Role role; //
-	private BloodType bloodType; //
-	private String name; //
-	private String surname; //
-	private String insuranceID; //
-	private String email; //
-	private String password; //
-	private LocalDate dateOfBirth; //
-	private Gender gender; //
-	private double weight; //
+	private Long id; 
+	private Role role; 
+	private BloodType bloodType; 
+	private String name; 
+	private String surname; 
+	private String insuranceID; 
+	private String email; 
+	private String password; 
+	private LocalDate dateOfBirth; 
+	private Gender gender; 
+	private double weight; 
 	private LocalDate dateOfLastDonation; // setuje lekar 
 	private int countOfDonations; // setuje lekar
-	private boolean approved; // setuje lekar
+	private boolean approved; // setuje lekar ked setne donation/
 	private List<Notifikation> listOfNotifikations = new ArrayList<>();
 	//age
 	//remaining days
