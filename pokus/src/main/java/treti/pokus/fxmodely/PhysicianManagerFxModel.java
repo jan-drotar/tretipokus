@@ -158,8 +158,4 @@ public class PhysicianManagerFxModel {
 				return d;
 			}
 		}
-
-
-	
-
 }

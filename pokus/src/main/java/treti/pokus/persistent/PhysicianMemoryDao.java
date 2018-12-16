@@ -55,7 +55,7 @@ public class PhysicianMemoryDao implements PhysicianDao {
 	}
 
 	@Override
-	public void save(Physician physician) {
+	public void update(Physician physician) {
 		if (physician != null) {
 			if (physician.getId() == null) {
 				add(physician);

@@ -3,6 +3,8 @@ package treti.pokus.kontrolery;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,11 +14,16 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import treti.pokus.entity.Physician;
 import treti.pokus.fxmodely.PhysicianFXModel;
+import treti.pokus.persistent.MysqlPhysicianDao;
+import treti.pokus.persistent.PhysicianDao;
+import treti.pokus.persistent.PhysicianDaoFactory;
 import treti.pokus.persistent.PhysicianMemoryDao;
 
 public class PhysicianEditController {
 	
-	private PhysicianMemoryDao physicianDao = new PhysicianMemoryDao();
+//	private PhysicianMemoryDao physicianDao = new PhysicianMemoryDao();
+	private PhysicianDao physicianDao = PhysicianDaoFactory.INSTANCE.getMysqlPhysicianDao();
+//	private MysqlPhysicianDao physisicanDao = new MysqlPhysicianDao();
 	
 	@FXML
 	private ResourceBundle resources;
@@ -58,8 +65,6 @@ public class PhysicianEditController {
 	private Button signOutButton;
 
 	private PhysicianFXModel editedPhysician = new PhysicianFXModel();
-//    private Physician selectedPhysician = null;
-
 	
 	@FXML
 	void initialize() {
