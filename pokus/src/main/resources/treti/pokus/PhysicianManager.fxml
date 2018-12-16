@@ -4,6 +4,7 @@
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.Tab?>
@@ -57,23 +58,7 @@
                               <Font size="15.0" />
                            </font>
                         </TextField>
-                        <TextField fx:id="findDonBySurnameTextField" layoutX="359.0" layoutY="247.0" prefHeight="25.0" prefWidth="181.0" promptText="by Surname" AnchorPane.leftAnchor="506.0" AnchorPane.topAnchor="165.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </TextField>
-                        <Label layoutX="492.0" layoutY="237.0" prefHeight="21.0" prefWidth="21.0" text="Or" AnchorPane.leftAnchor="480.0" AnchorPane.topAnchor="171.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Label>
                         <Button fx:id="findDonInDonListrButton" layoutX="570.0" layoutY="247.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="64.0" text="Find" AnchorPane.leftAnchor="693.0" AnchorPane.topAnchor="165.0">
-                           <font>
-                              <Font size="15.0" />
-                           </font>
-                        </Button>
-                        <TableView fx:id="listOfDonorsTableView" layoutX="99.0" layoutY="829.0" prefHeight="170.0" prefWidth="727.0" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="205.0" />
-                        <Button fx:id="clearListOfDonorsButton" layoutX="655.0" layoutY="392.0" mnemonicParsing="false" text="Clear the list" AnchorPane.leftAnchor="655.0" AnchorPane.topAnchor="392.0">
                            <font>
                               <Font size="15.0" />
                            </font>
@@ -194,6 +179,7 @@
                               <Font name="System Bold" size="16.0" />
                            </font>
                         </Label>
+                        <ListView fx:id="listOfDonorsLstView" layoutX="30.0" layoutY="208.0" prefHeight="213.0" prefWidth="729.0" />
                      </children>
                   </AnchorPane>
               </content>

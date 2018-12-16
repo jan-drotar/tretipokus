@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.Observable;
 
+import javax.swing.text.TabableView;
+
 import javafx.beans.property.BooleanProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
@@ -19,6 +21,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -40,10 +43,7 @@ public class PhysicianManagerController {
 	private DonationDAO donationDao = new DonationDAO();		  	
 	private PhysicianManagerFxModel registeredDonation = new PhysicianManagerFxModel();
 	
-	// pozera darcov v tabulke
-	private ObservableList<Participant> participantsModel;
-	private Map<String, BooleanProperty> columnsVisibility = new LinkedHashMap<>();
-	private ObjectProperty<Participant> selectedParticipant = new SimpleObjectProperty<>();
+	private List<Participant> searched = new ArrayList<>();
 	
 	// all log out buttons
 	@FXML
@@ -51,8 +51,8 @@ public class PhysicianManagerController {
 	@FXML
 	private Button pLogOutButton1b;
 	@FXML
-	    private Button pLogOutButton2a;
-		@FXML
+	private Button pLogOutButton2a;
+	@FXML
     private Button pLogOutButton2b;
 	@FXML
     private Button pLogOutButton3a;
@@ -65,9 +65,6 @@ public class PhysicianManagerController {
     private Button findDonInDonListrButton;
 	
 	@FXML
-    private Button clearListOfDonorsButton;
-	
-	@FXML
     private Button regTypeOfBloodDonationRegisterButton;
 
     @FXML
@@ -78,12 +75,6 @@ public class PhysicianManagerController {
 
     @FXML
     private TextField findDonByInsuranceIDTextField;
-
-    @FXML
-    private TextField findDonBySurnameTextField;
-
-    @FXML
-    private TableView<Participant> listOfDonorsTableView; 
 
     @FXML
     private TextField donsNewNameTextField;
@@ -224,6 +215,9 @@ public class PhysicianManagerController {
 
     @FXML
     private Label pSurnameLabel3b;
+    
+    @FXML
+    private ListView<Participant> listOfDonorsLstView;
 
         
     private ParticipantDAO participantDao = new ParticipantDAO();
@@ -263,41 +257,30 @@ public class PhysicianManagerController {
 		// new donation
         regTypeOfBloodDonationCombobox.valueProperty().bindBidirectional(registeredDonation.donationTypeProperty());
         
-        //donorsTabelview
-        
-        participantsModel = FXCollections.observableArrayList(donorDao.getAll());
-                
-        TableColumn<Participant, Long> idCol = new TableColumn<>("ID");
-    	idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
-    	listOfDonorsTableView.getColumns().add(idCol);
     	
-    	TableColumn<Participant, String> nameCol = new TableColumn<>("Meno");
-    	nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
-    	listOfDonorsTableView.getColumns().add(nameCol);
-        
-    	listOfDonorsTableView.setItems(participantsModel);
-    	listOfDonorsTableView.setEditable(true);
-    	
-    	//////////////////////////////////////////////////// find donor by name or insuranceId
+    	// find donor by name or insuranceId
     	findDonInDonListrButton.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
 			public void handle(ActionEvent arg0) {
-				// ////////////////////////////////////////////////////////////
-				System.out.println("find donor");
 				
+				if  
+					(!findDonByInsuranceIDTextField.getText().trim().isEmpty() || 
+					 !findDonByInsuranceIDTextField.getText().equals(null))  {
+					String s = findDonByInsuranceIDTextField.getText(); 
+					searched.addAll(donorDao.findPhysicianByInsuranceId(s));
+					
+					for (Participant participant : searched) {
+						System.out.println(searched.toString());
+					}
+					listOfDonorsLstView.setItems(FXCollections.observableArrayList(searched));
+					searched.clear();
+					findDonByInsuranceIDTextField.setText("");
+					
+				}
 			}
 		});
-    	
-    	clearListOfDonorsButton.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				// ///////////////////////////////////////////////////////// clear list of found donors
-				System.out.println("iba vycisti list vo find donors");
-			}
-		});
-    	
+    	    	
     	regTypeOfBloodDonationRegisterButton.setOnAction(new EventHandler<ActionEvent>() {
 			
 			@Override
