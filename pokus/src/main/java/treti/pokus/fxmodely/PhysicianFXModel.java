@@ -6,20 +6,15 @@ import javafx.beans.property.StringProperty;
 import treti.pokus.entity.Physician;
 
 public class PhysicianFXModel {
+	
 	private Long id;
 	private Physician physician;
+	
 	private StringProperty name = new SimpleStringProperty();
 	private StringProperty surname = new SimpleStringProperty();
 	private StringProperty newPassword = new SimpleStringProperty();
 	private StringProperty retypePassword = new SimpleStringProperty();
 
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public PhysicianFXModel() {
 	}
@@ -28,12 +23,12 @@ public class PhysicianFXModel {
 		this.physician = physician;
 		setName(physician.getName());
 		setSurname(physician.getSurname());
-		if (getNewPassword().equals(getRetypePassword())) {
-			physician.setPassword(getNewPassword());
-		}
+		setNewPassword(physician.getPassword());
+		
 	}
 
 	public Physician getPhysician() {
+		Physician physician = new Physician();
 		physician.setName(getName());
 		physician.setSurname(getSurname());
 		physician.setPassword(getNewPassword());

@@ -76,23 +76,12 @@ public class PhysicianEditController {
 //				 ulozit noveho Lekara (Physician)
 				Physician newPhysician = editedPhysician.getPhysician();
 				physicianDao.add(newPhysician);
+				
+				System.out.println(newPhysician.toString());
 			}
 		});
     	signOutButton.setOnAction(new LogOutHandler());
 
 		
-		
-		/*
-		assert physicianNameLabel != null : "fx:id=\"physicianNameLabel\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert physicianNameTextField != null : "fx:id=\"physicianNameTextField\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert physicianSurnameLabel != null : "fx:id=\"physicianSurnameLabel\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert physicianSurnameTextField != null : "fx:id=\"physicianSurnameTextField\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert physicianNewPasswordLable != null : "fx:id=\"physicianNewPasswordLable\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert physicianPasswordField != null : "fx:id=\"physicianPasswordField\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert physicianRetypePasswordLable != null : "fx:id=\"physicianRetypePasswordLable\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert physicianRetypePasswordField != null : "fx:id=\"physicianRetypePasswordField\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert physicianUpdateRegisterButton != null : "fx:id=\"physicianUpdateRegisterButton\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		assert signOutButton != null : "fx:id=\"signOutButton\" was not injected: check your FXML file 'PhysicianEdit.fxml'.";
-		*/
 	}
 }
