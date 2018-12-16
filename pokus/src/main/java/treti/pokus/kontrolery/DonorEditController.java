@@ -31,7 +31,7 @@ public class DonorEditController {
 	private List<Notifikation> notifikations = new ArrayList<>();
 	
 	private List<Participant> donors = new ArrayList<>();
-	private ParticipantDAO pdao = new ParticipantDAO();		  	
+	private ParticipantDAO dontDao = new ParticipantDAO();		  	
 	
 	private ParticipantFxModel editedDonor = new ParticipantFxModel();
 	
@@ -110,21 +110,14 @@ public class DonorEditController {
 			//////////////////////////////////////////////////////ulozit noveho donora alebo update?????? a otvori donor profil controller
 			public void handle(ActionEvent event) {
 				
-				try {
-					Participant donor = editedDonor.getDonor();
-					pdao.addParticipant(donor);
-					
-					donors = pdao.getAll();
-					
-					for (Participant participant : donors) {
-						System.out.println(participant.toString());
-					}
-					System.out.println("###################################");
-				} catch (NullPointerException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
+				Participant don = editedDonor.getDonor();
+				dontDao.addParticipant(don);
 				
+				donors = dontDao.getAll();
+				System.out.println("Donor list  ###################################");
+				for (Participant participant : donors) {
+					System.out.println(participant.toString());
+				}
 			}
 		});
         //odhlasenie spusti sa LoginPageController

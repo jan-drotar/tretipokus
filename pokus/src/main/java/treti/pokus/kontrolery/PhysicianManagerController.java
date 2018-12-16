@@ -3,7 +3,10 @@ package treti.pokus.kontrolery;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Observable;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -12,8 +15,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import treti.pokus.entity.Donation;
 import treti.pokus.entity.Participant;
 import treti.pokus.fxmodely.DonationFxModel;
@@ -31,6 +36,8 @@ public class PhysicianManagerController {
 	
 	private ParticipantFxModel editedDonor = new ParticipantFxModel();
 	private DonationFxModel editedDonation = new DonationFxModel();
+	
+	private ObservableList<ParticipantFxModel> participantsModel;
 	
 	// all log out buttons
 	@FXML
@@ -70,7 +77,7 @@ public class PhysicianManagerController {
     private TextField findDonBySurnameTextField;
 
     @FXML
-    private TableView<?> listOfDonorsTableView; 
+    private TableView<ParticipantFxModel> listOfDonorsTableView; 
 
     @FXML
     private TextField donsNewNameTextField;
@@ -250,7 +257,18 @@ public class PhysicianManagerController {
 		// new donation
         regTypeOfBloodDonationCombobox.valueProperty().bindBidirectional(editedDonation.donationTypeProperty());
         
+        //donorsTabelview
+        List<ParticipantFxModel> models = new ArrayList<>();
+        for (Participant participant : participDao.getAll()) {
+			//models.add(new ParticipantFxModel(participant));
+		}
+        participantsModel = FXCollections.observableArrayList(models);
         
+        TableColumn<ParticipantFxModel, Long> idCol = new TableColumn<>("ID");
+    	idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	listOfDonorsTableView.getColumns().add(idCol);
+        
+    	listOfDonorsTableView.setItems(participantsModel);
         
     	//////////////////////////////////////////////////// find donor by name or insuranceId
     	findDonInDonListrButton.setOnAction(new EventHandler<ActionEvent>() {
@@ -282,6 +300,7 @@ public class PhysicianManagerController {
 				Donation donation = editedDonation.getDonation();
 				donationDao.addDonation(donation);
 				
+								
 				donors = participDao.getAll();
 				System.out.println("Donor list  ###################################");
 				for (Participant participant : donors) {

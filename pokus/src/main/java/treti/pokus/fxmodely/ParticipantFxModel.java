@@ -13,7 +13,7 @@ import treti.pokus.enumy.BloodType;
 import treti.pokus.enumy.Gender;
 import treti.pokus.enumy.Role;
 
-public class ParticipantFxModel {
+public class ParticipantFxModel { // v poriadku
 	
 //  name //
 	StringProperty name = new SimpleStringProperty();
@@ -147,8 +147,9 @@ public class ParticipantFxModel {
 	}
 		
 	public Participant getDonor() {
+		
 		if (getName() == null || getName().trim().isEmpty() ||
-				getSurname() == null || getSurname().trim().isEmpty() |
+				getSurname() == null || getSurname().trim().isEmpty() ||
 				getInsuranceID() == null || getInsuranceID().trim().isEmpty() ||
 				getBloodtype() == null|| getBloodtype().trim().isEmpty() ||
 				getEmail() == null || getEmail().trim().isEmpty() ||
@@ -179,7 +180,7 @@ public class ParticipantFxModel {
 	
 	public Participant getUnregisteredDonor() {
 		if (getName() == null || getName().trim().isEmpty() ||
-				getSurname() == null || getSurname().trim().isEmpty() |
+				getSurname() == null || getSurname().trim().isEmpty() ||
 				getInsuranceID() == null || getInsuranceID().trim().isEmpty() ||
 				getBloodtype() == null|| getBloodtype().trim().isEmpty() ||
 				getDateOfBirth() == null || getDateOfBirth().until(LocalDate.now()).getYears() < 18 ||
