@@ -2,15 +2,19 @@ package treti.pokus.kontrolery;
 
 
 import java.util.ArrayList;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Observable;
 
+import javafx.beans.property.BooleanProperty;
+import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.scene.Group;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.DatePicker;
@@ -21,23 +25,25 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import treti.pokus.entity.Donation;
 import treti.pokus.entity.Participant;
-import treti.pokus.fxmodely.DonationFxModel;
 import treti.pokus.fxmodely.ParticipantFxModel;
+import treti.pokus.fxmodely.PhysicianManagerFxModel;
 import treti.pokus.persistent.DonationDAO;
 import treti.pokus.persistent.ParticipantDAO;
 
 public class PhysicianManagerController {
-	
+	//registruje darcu
 	private List<Participant> donors = new ArrayList<>();
-	private ParticipantDAO participDao = new ParticipantDAO();	
-	
+	private ParticipantDAO donorDao = new ParticipantDAO();		  	
+	private PhysicianManagerFxModel registeredDonor = new PhysicianManagerFxModel();
+	//registruje darovanie
 	private List<Donation> donations = new ArrayList<>();
-	private DonationDAO donationDao = new DonationDAO();	
+	private DonationDAO donationDao = new DonationDAO();		  	
+	private PhysicianManagerFxModel registeredDonation = new PhysicianManagerFxModel();
 	
-	private ParticipantFxModel editedDonor = new ParticipantFxModel();
-	private DonationFxModel editedDonation = new DonationFxModel();
-	
-	private ObservableList<ParticipantFxModel> participantsModel;
+	// pozera darcov v tabulke
+	private ObservableList<Participant> participantsModel;
+	private Map<String, BooleanProperty> columnsVisibility = new LinkedHashMap<>();
+	private ObjectProperty<Participant> selectedParticipant = new SimpleObjectProperty<>();
 	
 	// all log out buttons
 	@FXML
@@ -45,8 +51,8 @@ public class PhysicianManagerController {
 	@FXML
 	private Button pLogOutButton1b;
 	@FXML
-    private Button pLogOutButton2a;
-	@FXML
+	    private Button pLogOutButton2a;
+		@FXML
     private Button pLogOutButton2b;
 	@FXML
     private Button pLogOutButton3a;
@@ -77,7 +83,7 @@ public class PhysicianManagerController {
     private TextField findDonBySurnameTextField;
 
     @FXML
-    private TableView<ParticipantFxModel> listOfDonorsTableView; 
+    private TableView<Participant> listOfDonorsTableView; 
 
     @FXML
     private TextField donsNewNameTextField;
@@ -248,28 +254,30 @@ public class PhysicianManagerController {
         
         // bindBiderectionals
         // new donor
-        donsNewNameTextField.textProperty().bindBidirectional(editedDonor.nameProperty());
-        donsNewInsuranceIDTextField.textProperty().bindBidirectional(editedDonor.surnameProperty());
-        donsNewSurnameTextField.textProperty().bindBidirectional(editedDonor.insuranceIDProperty());
-        donsNewBloodTypeCombobox.valueProperty().bindBidirectional(editedDonor.bloodtypeProperty());
-        donsNewDateOfBirthDatePicker.valueProperty().bindBidirectional(editedDonor.dateOfBirthProperty());
-        donsNewGenderCombo.valueProperty().bindBidirectional(editedDonor.genderProperty());
+        donsNewNameTextField.textProperty().bindBidirectional(registeredDonor.nameProperty());
+        donsNewInsuranceIDTextField.textProperty().bindBidirectional(registeredDonor.surnameProperty());
+        donsNewSurnameTextField.textProperty().bindBidirectional(registeredDonor.insuranceIDProperty());
+        donsNewBloodTypeCombobox.valueProperty().bindBidirectional(registeredDonor.bloodtypeProperty());
+        donsNewDateOfBirthDatePicker.valueProperty().bindBidirectional(registeredDonor.dateOfBirthProperty());
+        donsNewGenderCombo.valueProperty().bindBidirectional(registeredDonor.genderProperty());
 		// new donation
-        regTypeOfBloodDonationCombobox.valueProperty().bindBidirectional(editedDonation.donationTypeProperty());
+        regTypeOfBloodDonationCombobox.valueProperty().bindBidirectional(registeredDonation.donationTypeProperty());
         
         //donorsTabelview
-        List<ParticipantFxModel> models = new ArrayList<>();
-        for (Participant participant : participDao.getAll()) {
-			//models.add(new ParticipantFxModel(participant));
-		}
-        participantsModel = FXCollections.observableArrayList(models);
         
-        TableColumn<ParticipantFxModel, Long> idCol = new TableColumn<>("ID");
+        participantsModel = FXCollections.observableArrayList(donorDao.getAll());
+                
+        TableColumn<Participant, Long> idCol = new TableColumn<>("ID");
     	idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
     	listOfDonorsTableView.getColumns().add(idCol);
+    	
+    	TableColumn<Participant, String> nameCol = new TableColumn<>("Meno");
+    	nameCol.setCellValueFactory(new PropertyValueFactory<>("name"));
+    	listOfDonorsTableView.getColumns().add(nameCol);
         
     	listOfDonorsTableView.setItems(participantsModel);
-        
+    	listOfDonorsTableView.setEditable(true);
+    	
     	//////////////////////////////////////////////////// find donor by name or insuranceId
     	findDonInDonListrButton.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -295,21 +303,23 @@ public class PhysicianManagerController {
 			@Override
 			public void handle(ActionEvent event) {
 				/// zareg darovanie po vybrati druhu darovania 1 alebo 3
-				Participant donor = editedDonor.getUnregisteredDonor();
-				participDao.addParticipant(donor);
-				Donation donation = editedDonation.getDonation();
-				donationDao.addDonation(donation);
+
+				Participant newDonor = registeredDonor.getUnregisteredDonor();
+				donorDao.addParticipant(newDonor);
 				
-								
-				donors = participDao.getAll();
+				donors = donorDao.getAll();
 				System.out.println("Donor list  ###################################");
 				for (Participant participant : donors) {
 					System.out.println(participant.toString());
 				}
+				
+				Donation newDonation = registeredDonation.getDonation();
+				donationDao.addDonation(newDonation);
+				
 				donations = donationDao.getAll();
-				System.out.println("Donations list  ###################################");
-				for (Donation d : donations) {
-					System.out.println(d.toString());
+				System.out.println("Donation list -----------------------------------");
+				for (Donation darovanie : donations) {
+					System.out.println(darovanie.toString());
 				}
 			}
 		});
