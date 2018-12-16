@@ -8,23 +8,25 @@ import treti.pokus.entity.Physician;
 
 public class PhysicianMemoryDao implements PhysicianDao {
 
+
 	private long lastId = 0;
 	private List<Physician> physicians = new ArrayList<>();
 
-//		public PhysicianEditController() {
-//			Physician physician1 = new Physician();
-//			physician1.setId(10l);
-//			physician1.setName("John");
-//			physician1.setSurname("Button");
-//			physician1.setPassword("heslo1");
-//			physicians.add(physician1);
-//			Physician physician2 = new Physician();
-//			physician2.setId(100l);
-//			physician2.setName("Marek");
-//			physician2.setSurname("Bumarek");
-//			physician2.setPassword("heslo2");
-//			physicians.add(physician2);
-//		}
+	public PhysicianMemoryDao() {
+		Physician physician1 = new Physician();
+		physician1.setId(10l);
+		physician1.setName("John");
+		physician1.setSurname("Button");
+		physician1.setPassword("heslo1");
+		physicians.add(physician1);
+		Physician physician2 = new Physician();
+		physician2.setId(100l);
+		physician2.setName("Marek");
+		physician2.setSurname("Bumarek");
+		physician2.setPassword("heslo2");
+		physicians.add(physician2);
+		System.out.println(physicians.toString());
+	}
 
 	// CREATE
 	public void add(Physician physician) {
@@ -81,3 +83,4 @@ public class PhysicianMemoryDao implements PhysicianDao {
 	}
 
 }
+
