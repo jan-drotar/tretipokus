@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.kontrolery;
 
 
 import javafx.event.ActionEvent;
@@ -11,6 +11,7 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import treti.pokus.persistent.ParticipantDAO;
 
 public class PhysicianManagerController {
 	
@@ -222,7 +223,15 @@ public class PhysicianManagerController {
         typeOfTransFusionCombobox.getItems().addAll("Whole Blood","Plasma","Platelets","Red Cells");
 		
     	//////////////////////////////////////////////////// find donor by name or insuranceId
-    	findDonInDonListrButton.setOnAction(new FindParticipantHandler());
+    	findDonInDonListrButton.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// ////////////////////////////////////////////////////////////
+				System.out.println("find donor");
+				
+			}
+		});
     	
     	clearListOfDonorsButton.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -274,7 +283,14 @@ public class PhysicianManagerController {
 			}
 		});
         /////////////////////////////////////////////////////   najdi participanta v findPartHandler
-        findPatientInDonListButton.setOnAction(new FindParticipantHandler());
+        findPatientInDonListButton.setOnAction(new EventHandler<ActionEvent>() {
+			
+			@Override
+			public void handle(ActionEvent arg0) {
+				// TODO Auto-generated method stub/////////////////////////////////////////
+				System.out.println("find Patient");
+			}
+		});
         
         markDonAsPatientConfirmButton.setOnAction(new EventHandler<ActionEvent>() {
 			

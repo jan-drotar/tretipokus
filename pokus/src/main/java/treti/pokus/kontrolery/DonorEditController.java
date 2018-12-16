@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.kontrolery;
 
 
 import java.io.IOException;
@@ -21,6 +21,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
+import treti.pokus.Notifikation;
+import treti.pokus.entity.Participant;
+import treti.pokus.fxmodely.ParticipantFxModel;
+import treti.pokus.persistent.ParticipantDAO;
 
 public class DonorEditController {
 	
@@ -121,30 +125,6 @@ public class DonorEditController {
 					e.printStackTrace();
 				}
 				
-				try {
-					((Node)(event.getSource())).getScene().getWindow().hide();
-					//DonorProfileController profileController = new DonorProfileController();
-					FXMLLoader fxmlLoader = new FXMLLoader(
-							getClass().getResource("DonorProfile.fxml"));
-					AnchorPane apane = fxmlLoader.load();
-					DonorProfileController profileController = fxmlLoader.getController();
-					//profileController.setNameLabel(nameTextField.getText());////////////////////////////////
-					profileController.setSurnameLabel("HALO");
-					//profileController.setEmailLabel(emailTextField.getText());
-					//profileController.setBloodTypeLabel(bloodTypeCombobox.getValue());
-					// este dni a donationa////////////////////////////////////////////////////////////////
-					//profileController.setMessagesFromPhysician(notifikations);
-					Parent rootPane = fxmlLoader.load();
-					Scene scene = new Scene(rootPane);
-					Stage stage = new Stage();
-					stage.setTitle("Edit profile.");
-					stage.setScene(scene);
-					stage.show();
-					stage.setResizable(false);
-				} catch (IOException e) {
-					// 
-					e.printStackTrace();
-				}
 			}
 		});
         //odhlasenie spusti sa LoginPageController

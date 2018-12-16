@@ -1,22 +1,23 @@
-package treti.pokus;
+package treti.pokus.apps;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import treti.pokus.kontrolery.DonorEditController;
 
-public class AppLoginPage extends Application {
+public class AppDonorEdit extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		LoginPageController loginController = new LoginPageController();
+		DonorEditController editController = new DonorEditController();
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("LoginPage.fxml"));
-		fxmlLoader.setController(loginController);
+				getClass().getResource("DonorEdit.fxml"));
+		fxmlLoader.setController(editController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);
-		stage.setTitle("Sign in");
+		stage.setTitle("Edit profile");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);

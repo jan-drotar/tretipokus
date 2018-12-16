@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.fxmodely;
 
 public class DonationFxModel {
 	

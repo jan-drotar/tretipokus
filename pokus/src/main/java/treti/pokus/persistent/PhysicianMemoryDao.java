@@ -1,8 +1,10 @@
-package treti.pokus;
+package treti.pokus.persistent;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+
+import treti.pokus.entity.Physician;
 
 public class PhysicianMemoryDao implements PhysicianDao {
 

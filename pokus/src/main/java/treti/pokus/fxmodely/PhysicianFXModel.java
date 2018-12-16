@@ -1,8 +1,9 @@
-package treti.pokus;
+package treti.pokus.fxmodely;
 
 
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import treti.pokus.entity.Physician;
 
 public class PhysicianFXModel {
 	private Long id;

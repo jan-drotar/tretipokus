@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.kontrolery;
 
 
 import java.util.ArrayList;
@@ -11,6 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import treti.pokus.Notifikation;
 
 public class DonorProfileController {
 

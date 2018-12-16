@@ -1,9 +1,10 @@
 package treti.pokus;
 
+import treti.pokus.enumy.BloodType;
 
 public class App {
     public static void main( String[] args ){
-    	System.out.println(BloodType.fromString("A+").name());
+    	
     	
     	
     }

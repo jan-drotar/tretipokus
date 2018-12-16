@@ -1,8 +1,13 @@
-package treti.pokus;
+package treti.pokus.entity;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import treti.pokus.Notifikation;
+import treti.pokus.enumy.BloodType;
+import treti.pokus.enumy.Gender;
+import treti.pokus.enumy.Role;
 
 public class Participant {
 	private Long id; 

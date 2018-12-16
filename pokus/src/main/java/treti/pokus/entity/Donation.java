@@ -1,4 +1,6 @@
-package treti.pokus;
+package treti.pokus.entity;
+
+import treti.pokus.enumy.DonationType;
 
 public class Donation {
 	

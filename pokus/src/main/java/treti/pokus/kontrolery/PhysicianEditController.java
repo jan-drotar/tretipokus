@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.kontrolery;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -10,6 +10,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import treti.pokus.entity.Physician;
+import treti.pokus.fxmodely.PhysicianFXModel;
+import treti.pokus.persistent.PhysicianMemoryDao;
 
 public class PhysicianEditController {
 	

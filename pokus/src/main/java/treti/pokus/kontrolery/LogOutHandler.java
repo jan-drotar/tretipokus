@@ -1,9 +1,10 @@
-package treti.pokus;
+package treti.pokus.kontrolery;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.stage.Stage;
+import treti.pokus.apps.AppLoginPage;
 
 public class LogOutHandler implements EventHandler<ActionEvent>{
 

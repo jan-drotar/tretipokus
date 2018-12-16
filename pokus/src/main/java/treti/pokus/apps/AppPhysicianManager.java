@@ -1,22 +1,23 @@
-package treti.pokus;
+package treti.pokus.apps;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import treti.pokus.kontrolery.PhysicianManagerController;
 
-public class AppDonorEdit extends Application {
+public class AppPhysicianManager extends Application {
 	
 	@Override
 	public void start(Stage stage) throws Exception {
-		DonorEditController editController = new DonorEditController();
+		PhysicianManagerController managerController = new PhysicianManagerController();
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("DonorEdit.fxml"));
-		fxmlLoader.setController(editController);
+				getClass().getResource("PhysicianManager.fxml"));
+		fxmlLoader.setController(managerController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);
-		stage.setTitle("Edit profile");
+		stage.setTitle("Physicians Manager");
 		stage.setScene(scene);
 		stage.show();
 		stage.setResizable(false);

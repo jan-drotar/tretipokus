@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.fxmodely;
 
 import java.time.LocalDate;
 
@@ -8,6 +8,10 @@ import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
+import treti.pokus.entity.Participant;
+import treti.pokus.enumy.BloodType;
+import treti.pokus.enumy.Gender;
+import treti.pokus.enumy.Role;
 
 public class ParticipantFxModel {
 	

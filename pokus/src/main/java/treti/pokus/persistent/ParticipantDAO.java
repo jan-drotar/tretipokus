@@ -1,7 +1,9 @@
-package treti.pokus;
+package treti.pokus.persistent;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import treti.pokus.entity.Participant;
 
 public class ParticipantDAO {
 	

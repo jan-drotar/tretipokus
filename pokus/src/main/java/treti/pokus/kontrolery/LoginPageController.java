@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.kontrolery;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;

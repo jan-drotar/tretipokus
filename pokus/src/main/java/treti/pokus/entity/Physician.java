@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.entity;
 
 public class Physician {
 	private Long id; //

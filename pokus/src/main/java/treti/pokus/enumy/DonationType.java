@@ -1,4 +1,4 @@
-package treti.pokus;
+package treti.pokus.enumy;
 
 public enum DonationType {
 	WHOLE_BLOOD,
