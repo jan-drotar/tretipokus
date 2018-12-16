@@ -13,7 +13,7 @@ public class AppDonorEdit extends Application {
 	public void start(Stage stage) throws Exception {
 		DonorEditController editController = new DonorEditController();
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("DonorEdit.fxml"));
+				getClass().getResource("../DonorEdit.fxml"));
 		fxmlLoader.setController(editController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);

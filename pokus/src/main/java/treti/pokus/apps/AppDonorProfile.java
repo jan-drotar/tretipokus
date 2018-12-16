@@ -13,7 +13,7 @@ public class AppDonorProfile extends Application {
 	public void start(Stage stage) throws Exception {
 		DonorProfileController profileController = new DonorProfileController();
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("DonorProfile.fxml"));
+				getClass().getResource("../DonorProfile.fxml"));
 		fxmlLoader.setController(profileController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);

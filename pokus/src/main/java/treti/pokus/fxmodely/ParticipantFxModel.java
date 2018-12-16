@@ -175,7 +175,27 @@ public class ParticipantFxModel {
 			
 			return d;
 		}
-
-	}	
-
+	}
+	
+	public Participant getUnregisteredDonor() {
+		if (getName() == null || getName().trim().isEmpty() ||
+				getSurname() == null || getSurname().trim().isEmpty() |
+				getInsuranceID() == null || getInsuranceID().trim().isEmpty() ||
+				getBloodtype() == null|| getBloodtype().trim().isEmpty() ||
+				getDateOfBirth() == null || getDateOfBirth().until(LocalDate.now()).getYears() < 18 ||
+		        getGender() == null || getGender().trim().isEmpty()) {
+					return null;
+		} else {
+			Participant d = new Participant();
+			d.setRole(Role.DONOR);
+			d.setBloodType(BloodType.fromString(getBloodtype()));
+			d.setName(getName());
+			d.setSurname(getSurname());
+			d.setInsuranceID(getInsuranceID());
+			d.setDateOfBirth(getDateOfBirth());
+			d.setGender(Gender.fromString(getGender()));
+			
+			return d;
+		}
+	}
 }

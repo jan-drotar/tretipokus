@@ -13,7 +13,7 @@ public class AppPhysicianManager extends Application {
 	public void start(Stage stage) throws Exception {
 		PhysicianManagerController managerController = new PhysicianManagerController();
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("PhysicianManager.fxml"));
+				getClass().getResource("../PhysicianManager.fxml"));
 		fxmlLoader.setController(managerController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);

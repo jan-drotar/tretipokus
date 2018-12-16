@@ -13,7 +13,7 @@ public class AppLoginPage extends Application {
 	public void start(Stage stage) throws Exception {
 		LoginPageController loginController = new LoginPageController();
 		FXMLLoader fxmlLoader = new FXMLLoader(
-				getClass().getResource("LoginPage.fxml"));
+				getClass().getResource("../LoginPage.fxml"));
 		fxmlLoader.setController(loginController);
 		Parent rootPane = fxmlLoader.load();
 		Scene scene = new Scene(rootPane);

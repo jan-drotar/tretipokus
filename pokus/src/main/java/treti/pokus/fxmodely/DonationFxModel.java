@@ -1,19 +1,36 @@
 package treti.pokus.fxmodely;
 
+import java.time.LocalDate;
+
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import treti.pokus.entity.Donation;
+import treti.pokus.enumy.DonationType;
+
 public class DonationFxModel {
 	
-//id
-	
 //donationType
-
-//idDonor
+	StringProperty donationType = new SimpleStringProperty();
 	
-//idRecipient
+	public String getDonationType() {
+		return donationType.get();
+	}
+	public void setDonationType(String n) {
+		this.donationType.set(n);
+	}
+	public StringProperty donationTypeProperty() {
+		return donationType;
+	}
 
-//idPhysician
-	
-//tested
-
-//approved
+	public Donation getDonation() {
+		if (getDonationType() == null|| getDonationType().trim().isEmpty()) {
+			return null;
+		} else {
+			Donation d = new Donation();
+			d.setDonationType(DonationType.fromString(getDonationType()));
+			d.setRegistered(LocalDate.now());
+			return d;
+		}
+	}
 
 }

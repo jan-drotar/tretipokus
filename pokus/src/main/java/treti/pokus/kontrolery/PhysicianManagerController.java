@@ -1,6 +1,9 @@
 package treti.pokus.kontrolery;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -11,9 +14,23 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import treti.pokus.entity.Donation;
+import treti.pokus.entity.Participant;
+import treti.pokus.fxmodely.DonationFxModel;
+import treti.pokus.fxmodely.ParticipantFxModel;
+import treti.pokus.persistent.DonationDAO;
 import treti.pokus.persistent.ParticipantDAO;
 
 public class PhysicianManagerController {
+	
+	private List<Participant> donors = new ArrayList<>();
+	private ParticipantDAO participDao = new ParticipantDAO();	
+	
+	private List<Donation> donations = new ArrayList<>();
+	private DonationDAO donationDao = new DonationDAO();	
+	
+	private ParticipantFxModel editedDonor = new ParticipantFxModel();
+	private DonationFxModel editedDonation = new DonationFxModel();
 	
 	// all log out buttons
 	@FXML
@@ -221,7 +238,20 @@ public class PhysicianManagerController {
         patientNewBloodTypeCombobox.getItems().addAll("0+","0-","A+","A-","B+","B-","AB+","AB-");
         patientNewGenderCombobox.getItems().addAll("male", "female");
         typeOfTransFusionCombobox.getItems().addAll("Whole Blood","Plasma","Platelets","Red Cells");
-		
+        
+        // bindBiderectionals
+        // new donor
+        donsNewNameTextField.textProperty().bindBidirectional(editedDonor.nameProperty());
+        donsNewInsuranceIDTextField.textProperty().bindBidirectional(editedDonor.surnameProperty());
+        donsNewSurnameTextField.textProperty().bindBidirectional(editedDonor.insuranceIDProperty());
+        donsNewBloodTypeCombobox.valueProperty().bindBidirectional(editedDonor.bloodtypeProperty());
+        donsNewDateOfBirthDatePicker.valueProperty().bindBidirectional(editedDonor.dateOfBirthProperty());
+        donsNewGenderCombo.valueProperty().bindBidirectional(editedDonor.genderProperty());
+		// new donation
+        regTypeOfBloodDonationCombobox.valueProperty().bindBidirectional(editedDonation.donationTypeProperty());
+        
+        
+        
     	//////////////////////////////////////////////////// find donor by name or insuranceId
     	findDonInDonListrButton.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -246,11 +276,22 @@ public class PhysicianManagerController {
 			
 			@Override
 			public void handle(ActionEvent event) {
-				///////////////////////////////////////////////////////////////////// zareg darovanie po vybrati druhu darovania 1 alebo 3
-				System.out.println(donsNewBloodTypeCombobox.getValue());
-				System.out.println(donsNewGenderCombo.getValue());
-				System.out.println(regTypeOfBloodDonationCombobox.getValue());
-				System.out.println("zaregistruje darovanie po vybrati typu darovania");
+				/// zareg darovanie po vybrati druhu darovania 1 alebo 3
+				Participant donor = editedDonor.getUnregisteredDonor();
+				participDao.addParticipant(donor);
+				Donation donation = editedDonation.getDonation();
+				donationDao.addDonation(donation);
+				
+				donors = participDao.getAll();
+				System.out.println("Donor list  ###################################");
+				for (Participant participant : donors) {
+					System.out.println(participant.toString());
+				}
+				donations = donationDao.getAll();
+				System.out.println("Donations list  ###################################");
+				for (Donation d : donations) {
+					System.out.println(d.toString());
+				}
 			}
 		});
     	
