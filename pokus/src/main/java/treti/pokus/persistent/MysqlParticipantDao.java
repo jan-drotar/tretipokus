@@ -7,17 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
-import treti.pokus.entity.Donation;
-import treti.pokus.entity.Notification;
 import treti.pokus.entity.Participant;
-import treti.pokus.entity.Physician;
 import treti.pokus.enumy.BloodType;
-import treti.pokus.enumy.DonationType;
 import treti.pokus.enumy.Gender;
 import treti.pokus.enumy.Role;
 import treti.pokus.interfaces.ParticipantDao;
@@ -37,7 +32,8 @@ public class MysqlParticipantDao implements ParticipantDao {
 		simpleJdbcInsert.usingColumns("role", "name", "surname", "insuranceId", "email", "password", "dateOfBirth",
 				"gender", "weight", "dateOfLastDonation", "countOfDonations");
 		Map<String, Object> values = new HashMap<>();
-		values.put("role", participant.getRole());
+//		Gender.valueOf(rs.getString("gender"))
+		values.put("role", participant.getRole().toString());
 		values.put("name", participant.getName());
 		values.put("surname", participant.getSurname());
 		values.put("insuranceId", participant.getInsuranceId());
@@ -148,7 +144,19 @@ public class MysqlParticipantDao implements ParticipantDao {
 
 	@Override
 	public long getLastId() {
-		return 0;
+
+		String sql = "SELECT id from prvodarca.physician  ORDER BY id DESC LIMIT 0, 1;";
+		List<Integer> int1 = jdbcTemplate.query(sql, new RowMapper<Integer>() {
+
+			@Override
+			public Integer mapRow(ResultSet rs, int rowNum) throws SQLException {
+				return rs.getInt("id");
+			}
+
+		});
+//		SELECT id from prvodarca.physician  ORDER BY id DESC LIMIT 0, 1;
+		System.out.println(int1.get(0));
+		return int1.get(0);
 	}
 
 }
