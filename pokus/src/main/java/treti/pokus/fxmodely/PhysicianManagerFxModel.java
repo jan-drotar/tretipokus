@@ -87,7 +87,7 @@ public class PhysicianManagerFxModel {
 	}
 	
 //  dateOfBirth //
-	ObjectProperty<LocalDate> dateOfBirth = new SimpleObjectProperty<>();
+	ObjectProperty<LocalDate> dateOfBirth = new SimpleObjectProperty<LocalDate>();
 	
 	public LocalDate getDateOfBirth() {
 		return dateOfBirth.get();

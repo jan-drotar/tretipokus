@@ -4,6 +4,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 
+import treti.pokus.interfaces.PhysicianDao;
+
 public enum PhysicianDaoFactory {
 	INSTANCE;
 	

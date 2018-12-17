@@ -10,7 +10,7 @@ import treti.pokus.interfaces.ParticipantDao;
 public class ParticipantMemoryDao implements ParticipantDao {
 	
 	private long lastId = 0;
-	private List<Participant> participants = new ArrayList<>();
+	private List<Participant> participants = new ArrayList<Participant>();
 	
 	
 	public ParticipantMemoryDao() {
@@ -55,7 +55,7 @@ public class ParticipantMemoryDao implements ParticipantDao {
 	 */
 	@Override
 	public List<Participant> findPhysicianByInsuranceId(String id) {
-		List<Participant> novy = new ArrayList<>();
+		List<Participant> novy = new ArrayList<Participant>();
 		for (Participant participant : participants) {
 			if (participant.getInsuranceId().equals(id)) {
 				novy.add(participant);
@@ -69,7 +69,7 @@ public class ParticipantMemoryDao implements ParticipantDao {
 	 */
 	@Override
 	public List<Participant> findPhysicianBySurname(String s) {
-		List<Participant> novy = new ArrayList<>();
+		List<Participant> novy = new ArrayList<Participant>();
 		for (Participant participant : participants) {
 			if (participant.getSurname().equals(s)) {
 				novy.add(participant);

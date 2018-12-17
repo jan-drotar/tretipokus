@@ -43,6 +43,7 @@ public enum DaoFactory {
 			dataSource.setUser("paz1c");
 			dataSource.setPassword("paz1c");
 			dataSource.setDatabaseName("prvodarca");
+			dataSource.setUrl("jdbc:mysql://localhost/registracia_itat?serverTimezone=Europe/Bratislava");
 //				dataSource.setUseSSL(true);
 			jdbcTemplate = new JdbcTemplate(dataSource);
 		}

@@ -13,7 +13,7 @@ public class DonationMemoryDao implements DonationDao {
 	// DELETE
 
 	private long lastId = 0;
-	private List<Donation> donations = new ArrayList<>();
+	private List<Donation> donations = new ArrayList<Donation>();
 
 	public DonationMemoryDao() {
 		Donation d = new Donation();
