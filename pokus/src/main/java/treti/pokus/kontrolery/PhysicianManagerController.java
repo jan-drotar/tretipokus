@@ -225,6 +225,9 @@ public class PhysicianManagerController {
     
     @FXML
     private ListView<Participant> listOfDonorsLstView;
+    
+    @FXML
+    private ListView<Participant> patientListview;
 
         
     private ParticipantDao participantDao = new ParticipantMemoryDao();
@@ -256,14 +259,17 @@ public class PhysicianManagerController {
         // bindBiderectionals
         // new donor
         donsNewNameTextField.textProperty().bindBidirectional(registeredDonor.nameProperty());
-        donsNewInsuranceIDTextField.textProperty().bindBidirectional(registeredDonor.surnameProperty());
-        donsNewSurnameTextField.textProperty().bindBidirectional(registeredDonor.insuranceIDProperty());
+        donsNewInsuranceIDTextField.textProperty().bindBidirectional(registeredDonor.insuranceIDProperty());
+        donsNewSurnameTextField.textProperty().bindBidirectional(registeredDonor.surnameProperty());
         donsNewBloodTypeCombobox.valueProperty().bindBidirectional(registeredDonor.bloodtypeProperty());
         donsNewDateOfBirthDatePicker.valueProperty().bindBidirectional(registeredDonor.dateOfBirthProperty());
         donsNewGenderCombo.valueProperty().bindBidirectional(registeredDonor.genderProperty());
 		// new donation
         regTypeOfBloodDonationCombobox.valueProperty().bindBidirectional(registeredDonation.donationTypeProperty());
         
+        patientNewNameTextField.textProperty().bindBidirectional(registeredDonor.nameProperty());
+        patientNewSurnameTextField.textProperty().bindBidirectional(registeredDonor.surnameProperty());
+        patientNewInsuranceIDTextField.textProperty().bindBidirectional(registeredDonor.insuranceIDProperty());
           	
     	// find donor by name or insuranceId
     	findDonInDonListrButton.setOnAction(new EventHandler<ActionEvent>() {
