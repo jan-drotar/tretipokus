@@ -16,5 +16,6 @@ public interface DonationDao {
 	///////////////////////////////// find compatible for whole blood
 	///////////////////////////////// find copmatible for plasme
 	///////////////////////////////// find untested
+	List<Donation> getUntested();
 
 }

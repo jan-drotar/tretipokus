@@ -100,4 +100,10 @@ public class MysqlDonationDao implements DonationDao {
 			}
 		});
 	}
+
+	@Override
+	public List<Donation> getUntested() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

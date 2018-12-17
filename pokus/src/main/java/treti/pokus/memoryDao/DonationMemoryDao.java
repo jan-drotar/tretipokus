@@ -48,4 +48,15 @@ public class DonationMemoryDao implements DonationDao {
 
 	}
 
+	@Override
+	public List<Donation> getUntested() {
+		List<Donation> novy = new ArrayList<>();
+		for (Donation donation : donations) {
+			if (!donation.isTested()) {
+				novy.add(donation);
+			}
+		}
+		return novy;
+	}
+
 }

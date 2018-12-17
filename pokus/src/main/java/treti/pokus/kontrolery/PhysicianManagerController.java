@@ -28,6 +28,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import treti.pokus.entity.Donation;
 import treti.pokus.entity.Participant;
+import treti.pokus.enumy.DonationType;
 import treti.pokus.fxmodely.ParticipantFxModel;
 import treti.pokus.fxmodely.PhysicianManagerFxModel;
 import treti.pokus.interfaces.DonationDao;
@@ -46,6 +47,10 @@ public class PhysicianManagerController {
 	private PhysicianManagerFxModel registeredDonation = new PhysicianManagerFxModel();
 	
 	private List<Participant> searched = new ArrayList<>();
+	
+	private ObservableList<Donation> donationModel;
+	private Map<String, BooleanProperty> columnsVisibility = new LinkedHashMap<>();
+	private ObjectProperty<Donation> selectedDonation = new SimpleObjectProperty<>();
 	
 	// all log out buttons
 	@FXML
@@ -134,7 +139,7 @@ public class PhysicianManagerController {
     private TextField findUntestedDonationByIDTextField;
 
     @FXML
-    private TableView<?> untestedDonatinsTableview;
+    private TableView<Donation> untestedDonatinsTableview;
 
     @FXML
     private Label donationIDLabel;
@@ -259,7 +264,7 @@ public class PhysicianManagerController {
 		// new donation
         regTypeOfBloodDonationCombobox.valueProperty().bindBidirectional(registeredDonation.donationTypeProperty());
         
-    	
+          	
     	// find donor by name or insuranceId
     	findDonInDonListrButton.setOnAction(new EventHandler<ActionEvent>() {
 			
@@ -309,34 +314,32 @@ public class PhysicianManagerController {
 			}
 		});
     	
-    	findUntestedDonationButton.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				///////////////////////////////////////////// zobrazi zoznam netestovanych darovani
-				System.out.println("zoznam netestovanych darovani");
-				
-			}
-		});
-        
-        approveForDonationButton.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				// /////////////////////////////////////// odobri darovanie na darovanie
-				System.out.println("setne tested aj aprooved na true");
-			}
-		});
-
-        disapproveDonationButton.setOnAction(new EventHandler<ActionEvent>() {
-			
-			@Override
-			public void handle(ActionEvent event) {
-				// ////////////////////////////////////// oznaci krv za toxic
-				System.out.println("toxic blood, tested true ale approved false a sprava donorovi should find a doctor soon");
-		
-			}
-		});
+    	donationModel = FXCollections.observableArrayList(donationDao.getUntested());
+    	TableColumn<Donation, Long> idCol = new TableColumn<>("ID");
+    	idCol.setCellValueFactory(new PropertyValueFactory<>("id"));
+    	untestedDonatinsTableview.getColumns().add(idCol);
+    	columnsVisibility.put("ID", idCol.visibleProperty());
+    	
+    	TableColumn<Donation, DonationType> donationTypeCol = new TableColumn<>("TYPE");
+    	donationTypeCol.setCellValueFactory(new PropertyValueFactory<>("donationType"));
+    	untestedDonatinsTableview.getColumns().add(donationTypeCol);
+    	columnsVisibility.put("TYPE", donationTypeCol.visibleProperty());
+    	
+    	TableColumn<Donation, Boolean> testedCol = new TableColumn<>("TESTED");
+    	testedCol.setCellValueFactory(new PropertyValueFactory<>("tested"));
+    	testedCol.setEditable(true);
+    	untestedDonatinsTableview.getColumns().add(testedCol);
+    	columnsVisibility.put("TESTED", testedCol.visibleProperty());
+    	
+    	TableColumn<Donation, Boolean> approvedCol = new TableColumn<>("APPROVAL");
+    	approvedCol.setCellValueFactory(new PropertyValueFactory<>("approved"));
+    	approvedCol.setEditable(true);
+    	untestedDonatinsTableview.getColumns().add(approvedCol);
+    	columnsVisibility.put("APPROVAL", approvedCol.visibleProperty());	
+    	
+    	untestedDonatinsTableview.setItems(donationModel);
+    	untestedDonatinsTableview.setEditable(true);
+    	
         /////////////////////////////////////////////////////   najdi participanta v findPartHandler
         findPatientInDonListButton.setOnAction(new EventHandler<ActionEvent>() {
 			
