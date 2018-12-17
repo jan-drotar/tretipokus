@@ -1,13 +1,13 @@
-package treti.pokus.persistent;
+package treti.pokus.memoryDao;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
 import treti.pokus.entity.Physician;
+import treti.pokus.interfaces.PhysicianDao;
 
 public class PhysicianMemoryDao implements PhysicianDao {
-
 
 	private long lastId = 0;
 	private List<Physician> physicians = new ArrayList<>();
@@ -28,7 +28,6 @@ public class PhysicianMemoryDao implements PhysicianDao {
 		System.out.println(physicians.toString());
 	}
 
-	// CREATE
 	public void add(Physician physician) {
 		if (physician != null) {
 			physician.setId(++lastId);
@@ -36,12 +35,10 @@ public class PhysicianMemoryDao implements PhysicianDao {
 		}
 	}
 
-	// READ
 	public List<Physician> getAll() {
 		return physicians;
 	}
 
-	// count
 	public int physicianCount() {
 		return physicians.size();
 	}
@@ -55,7 +52,7 @@ public class PhysicianMemoryDao implements PhysicianDao {
 	}
 
 	@Override
-	public void update(Physician physician) {
+	public void save(Physician physician) {
 		if (physician != null) {
 			if (physician.getId() == null) {
 				add(physician);

@@ -25,7 +25,7 @@ public class PhysicianManagerFxModel {
 		this.participant = p;
 		setName(p.getName());
 		setSurname(p.getSurname());
-		setInsuranceID(p.getInsuranceID());
+		setInsuranceID(p.getInsuranceId());
 		setBloodtype(p.getBloodType().getText());
 		setDateOfBirth(p.getDateOfBirth());
 		setGender(p.getGender().getText());
@@ -126,7 +126,7 @@ public class PhysicianManagerFxModel {
 				d.setBloodType(BloodType.fromString(getBloodtype()));
 				d.setName(getName());
 				d.setSurname(getSurname());
-				d.setInsuranceID(getInsuranceID());
+				d.setInsuranceId(getInsuranceID());
 				d.setDateOfBirth(getDateOfBirth());
 				d.setGender(Gender.fromString(getGender()));
 				

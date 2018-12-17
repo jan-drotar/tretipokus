@@ -1,10 +1,10 @@
 package treti.pokus.entity;
 
 public class Physician {
-	private Long id; //
-	private String password; //
-	private String name; //
-	private String surname; //
+	private Long id;
+	private String password;
+	private String name;
+	private String surname;
 
 	// posle spravu
 	// nastavi pocet darovani

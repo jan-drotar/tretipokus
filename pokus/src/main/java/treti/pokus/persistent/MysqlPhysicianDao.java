@@ -11,40 +11,39 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 import treti.pokus.entity.Physician;
+import treti.pokus.interfaces.PhysicianDao;
 
-public class MysqlPhysicianDao implements PhysicianDao{
+public class MysqlPhysicianDao implements PhysicianDao {
 
 	JdbcTemplate jdbcTemplate;
-	
+
 	public MysqlPhysicianDao(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
-	
+
 	@Override
-	public void add(Physician physician) {
+	public void add(Physician physician){
 		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate);
 		insert.setTableName("physician");
 		insert.setGeneratedKeyName("id");
-		insert.usingColumns("name" , "surname" , "password");
-		
-		Map <String, Object> values = new HashMap<>();
+		insert.usingColumns("name", "surname", "password");
+
+		Map<String, Object> values = new HashMap<>();
 		values.put("name", physician.getName());
 		values.put("surname", physician.getSurname());
 		values.put("password", physician.getPassword());
-		
+
 		physician.setId(insert.executeAndReturnKey(values).longValue());
 	}
 
 	@Override
-	public void update(Physician physician) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(long id) {
-		// TODO Auto-generated method stub
-		
+	public void delete(long id) throws PhysicianNotFoundException {
+//		TODO: UNIMPLEMENTED
+//		jdbcTemplate.update("DELETE FROM physician WHERE participant_id = ?", id);
+//		int deleted = jdbcTemplate.update("DELETE FROM participant WHERE id = ?", id);
+//		if (deleted == 0) {
+//			throw new PhysicianNotFoundException(id);
+//		}
 	}
 
 	@Override
@@ -61,9 +60,23 @@ public class MysqlPhysicianDao implements PhysicianDao{
 				physician.setPassword(rs.getString("password"));
 				return physician;
 			}
-			
+
 		});
 		return physicians;
+	}
+
+	@Override
+	public void save(Physician physician) throws NullPointerException {
+		if (physician == null)
+			throw new NullPointerException("physician cannot be null");
+		if (physician.getId() == null) {
+			add(physician);
+		} else {
+			String sql = "UPDATE physician SET name = ?, surname = ?, password = ?";
+			jdbcTemplate.update(sql, physician.getName(), physician.getSurname(), physician.getPassword());
+			jdbcTemplate.update("DELETE FROM physician WHERE id = ?", physician.getId());
+		}
+
 	}
 
 }

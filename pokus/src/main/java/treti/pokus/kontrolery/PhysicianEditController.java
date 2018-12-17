@@ -14,15 +14,15 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import treti.pokus.entity.Physician;
 import treti.pokus.fxmodely.PhysicianFXModel;
+import treti.pokus.interfaces.PhysicianDao;
+import treti.pokus.memoryDao.PhysicianMemoryDao;
+import treti.pokus.persistent.DaoFactory;
 import treti.pokus.persistent.MysqlPhysicianDao;
-import treti.pokus.persistent.PhysicianDao;
-import treti.pokus.persistent.PhysicianDaoFactory;
-import treti.pokus.persistent.PhysicianMemoryDao;
 
 public class PhysicianEditController {
 	
 //	private PhysicianMemoryDao physicianDao = new PhysicianMemoryDao();
-	private PhysicianDao physicianDao = PhysicianDaoFactory.INSTANCE.getMysqlPhysicianDao();
+	private PhysicianDao physicianDao = DaoFactory.INSTANCE.getPhysicianDao();
 //	private MysqlPhysicianDao physisicanDao = new MysqlPhysicianDao();
 	
 	@FXML
@@ -78,11 +78,11 @@ public class PhysicianEditController {
     	physicianUpdateRegisterButton.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-//				 ulozit noveho Lekara (Physician)
 				Physician newPhysician = editedPhysician.getPhysician();
 				physicianDao.add(newPhysician);
-				
+//				FIXME: remove sysout
 				System.out.println(newPhysician.toString());
+				physicianUpdateRegisterButton.getScene().getWindow().hide();
 			}
 		});
     	signOutButton.setOnAction(new LogOutHandler());

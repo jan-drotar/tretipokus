@@ -21,31 +21,33 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import javafx.util.converter.NumberStringConverter;
-import treti.pokus.Notifikation;
+import treti.pokus.entity.Notification;
 import treti.pokus.entity.Participant;
 import treti.pokus.fxmodely.ParticipantFxModel;
-import treti.pokus.persistent.ParticipantDAO;
+import treti.pokus.interfaces.ParticipantDao;
+import treti.pokus.memoryDao.ParticipantMemoryDao;
 
 public class DonorEditController {
-	
-	private List<Notifikation> notifikations = new ArrayList<>();
+	//TODO donor db connection
+	private List<Notification> notifikations = new ArrayList<>();
 	
 	private List<Participant> donors = new ArrayList<>();
-	private ParticipantDAO dontDao = new ParticipantDAO();		  	
+	private ParticipantDao dontDao = new ParticipantMemoryDao();		  	
 	
 	private ParticipantFxModel editedDonor = new ParticipantFxModel();
 	
 	public DonorEditController() {
+//		FIXME upratat po sebe kod
 		// T////////////////////////////////////////////// zatial to tu necham
-		Notifikation n = new Notifikation();
+		Notification n = new Notification();
 		n.setId(1);
-		n.setSprava("Prvy message");
-		n.setLekar("LEKAR");
+		n.setMessage("Prvy message");
+		n.setPhysicianId(1);
 		notifikations.add(n);
-		Notifikation n2 = new Notifikation();
+		Notification n2 = new Notification();
 		n2.setId(2);
-		n2.setSprava("Druhy message");
-		n2.setLekar("LEKAR 2");
+		n2.setMessage("Druhy message");
+		n2.setPhysicianId(2);
 		notifikations.add(n2);
 	
 	}

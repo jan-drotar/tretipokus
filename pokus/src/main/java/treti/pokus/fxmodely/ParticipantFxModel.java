@@ -165,7 +165,7 @@ public class ParticipantFxModel { // v poriadku
 			d.setBloodType(BloodType.fromString(getBloodtype()));
 			d.setName(getName());
 			d.setSurname(getSurname());
-			d.setInsuranceID(getInsuranceID());
+			d.setInsuranceId(getInsuranceID());
 			d.setEmail(getEmail());
 	//		if (getNewPassword().equals(getRetypePassword())) {
 	//			d.setPassword(getNewPassword());

@@ -4,7 +4,6 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-import treti.pokus.Notifikation;
 import treti.pokus.enumy.BloodType;
 import treti.pokus.enumy.Gender;
 import treti.pokus.enumy.Role;
@@ -15,7 +14,7 @@ public class Participant {
 	private BloodType bloodType; 
 	private String name; 
 	private String surname; 
-	private String insuranceID; 
+	private String insuranceId; 
 	private String email; 
 	private String password; 
 	private LocalDate dateOfBirth; 
@@ -24,7 +23,6 @@ public class Participant {
 	private LocalDate dateOfLastDonation; // setuje lekar 
 	private int countOfDonations; // setuje lekar
 	private boolean approved; // setuje lekar ked setne donation/
-	private List<Notifikation> listOfNotifikations = new ArrayList<>();
 	//age
 	//remaining days
 
@@ -68,12 +66,12 @@ public class Participant {
 		this.surname = surname;
 	}
 
-	public String getInsuranceID() {
-		return insuranceID;
+	public String getInsuranceId() {
+		return insuranceId;
 	}
 
-	public void setInsuranceID(String insuranceID) {
-		this.insuranceID = insuranceID;
+	public void setInsuranceId(String insuranceId) {
+		this.insuranceId = insuranceId;
 	}
 
 	public String getEmail() {
@@ -132,14 +130,6 @@ public class Participant {
 		this.countOfDonations = countOfDonations;
 	}
 
-	public List<Notifikation> getListOfNotifikations() {
-		return listOfNotifikations;
-	}
-
-	public void setListOfNotifikations(List<Notifikation> listOfNotifikations) {
-		this.listOfNotifikations = listOfNotifikations;
-	}
-
 	public boolean isApproved() {
 		return approved;
 	}
@@ -151,10 +141,10 @@ public class Participant {
 	@Override
 	public String toString() {
 		return "Participant [id=" + id + ", role=" + role + ", bloodType=" + bloodType + ", name=" + name + ", surname="
-				+ surname + ", insuranceID=" + insuranceID + ", email=" + email + ", password=" + password
+				+ surname + ", insuranceID=" + insuranceId + ", email=" + email + ", password=" + password
 				+ ", dateOfBirth=" + dateOfBirth + ", gender=" + gender + ", weight=" + weight + ", dateOfLastDonation="
 				+ dateOfLastDonation + ", countOfDonations=" + countOfDonations + ", approved=" + approved
-				+ ", listOfNotifikations=" + listOfNotifikations + "]";
+				+ ", listOfNotifikations=" + "]";
 	}
 
 	

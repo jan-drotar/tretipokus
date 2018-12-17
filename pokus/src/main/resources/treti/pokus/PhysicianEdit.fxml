@@ -9,7 +9,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label fx:id="physicianRegistrationUpdateLabel" layoutX="250.0" layoutY="48.0" text="Physician Registration/Update Page" AnchorPane.topAnchor="50.0">
+      <Label fx:id="physicianRegistrationUpdateLabel" layoutX="250.0" layoutY="48.0" text="Physician Registration Page" AnchorPane.topAnchor="50.0">
          <font>
             <Font size="20.0" />
          </font>
@@ -38,7 +38,7 @@
          </font>
       </Label>
       <PasswordField fx:id="physicianRetypePasswordField" layoutX="170.0" layoutY="240.0" prefHeight="25.0" prefWidth="550.0" AnchorPane.leftAnchor="170.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="240.0" />
-      <Button fx:id="physicianUpdateRegisterButton" layoutX="600.0" layoutY="300.0" mnemonicParsing="false" text="Update/Register" AnchorPane.bottomAnchor="250.0" AnchorPane.rightAnchor="100.0">
+      <Button fx:id="physicianUpdateRegisterButton" layoutX="600.0" layoutY="300.0" mnemonicParsing="false" text="Register" AnchorPane.bottomAnchor="250.0" AnchorPane.rightAnchor="100.0">
          <font>
             <Font size="15.0" />
          </font>

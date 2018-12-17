@@ -30,17 +30,19 @@ import treti.pokus.entity.Donation;
 import treti.pokus.entity.Participant;
 import treti.pokus.fxmodely.ParticipantFxModel;
 import treti.pokus.fxmodely.PhysicianManagerFxModel;
-import treti.pokus.persistent.DonationDAO;
-import treti.pokus.persistent.ParticipantDAO;
+import treti.pokus.interfaces.DonationDao;
+import treti.pokus.interfaces.ParticipantDao;
+import treti.pokus.memoryDao.DonationMemoryDao;
+import treti.pokus.memoryDao.ParticipantMemoryDao;
 
 public class PhysicianManagerController {
 	//registruje darcu
 	private List<Participant> donors = new ArrayList<>();
-	private ParticipantDAO donorDao = new ParticipantDAO();		  	
+	private ParticipantDao donorDao = new ParticipantMemoryDao();		  	
 	private PhysicianManagerFxModel registeredDonor = new PhysicianManagerFxModel();
 	//registruje darovanie
 	private List<Donation> donations = new ArrayList<>();
-	private DonationDAO donationDao = new DonationDAO();		  	
+	private DonationDao donationDao = new DonationMemoryDao();		  	
 	private PhysicianManagerFxModel registeredDonation = new PhysicianManagerFxModel();
 	
 	private List<Participant> searched = new ArrayList<>();
@@ -220,7 +222,7 @@ public class PhysicianManagerController {
     private ListView<Participant> listOfDonorsLstView;
 
         
-    private ParticipantDAO participantDao = new ParticipantDAO();
+    private ParticipantDao participantDao = new ParticipantMemoryDao();
     
     public PhysicianManagerController() {
 		

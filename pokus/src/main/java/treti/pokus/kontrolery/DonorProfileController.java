@@ -11,7 +11,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import treti.pokus.Notifikation;
+import treti.pokus.entity.Notification;
 
 public class DonorProfileController {
 
@@ -40,7 +40,7 @@ public class DonorProfileController {
     private Label daysTilNextDonationLabel;
 
     @FXML
-    private ListView<Notifikation> messageFromPhysicianListView;
+    private ListView<Notification> messageFromPhysicianListView;
 
 
     @FXML
