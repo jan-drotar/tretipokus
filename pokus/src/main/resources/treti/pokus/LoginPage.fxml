@@ -3,100 +3,53 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.Separator?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/10.0.2" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label layoutX="152.0" layoutY="106.0" text="Sign in as donor." textFill="#f81414" AnchorPane.topAnchor="106.0">
+      <Label layoutX="300.0" layoutY="50.0" text="Physician Sign In Page" AnchorPane.bottomAnchor="550.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="300.0" AnchorPane.topAnchor="50.0">
          <font>
             <Font size="20.0" />
          </font>
       </Label>
-      <Label layoutX="64.0" layoutY="165.0" text="Email address:" textFill="#f81414">
+      <Label layoutY="150.0" text="Physicians ID No.:" textFill="#0509f7d0" AnchorPane.bottomAnchor="500.0" AnchorPane.leftAnchor="335.0" AnchorPane.rightAnchor="335.0" AnchorPane.topAnchor="150.0">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <Label layoutX="64.0" layoutY="232.0" text="Password:" textFill="#f81414">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <TextField fx:id="donorEmailSignInTextField" layoutX="64.0" layoutY="193.0" prefHeight="25.0" prefWidth="300.0">
+      <TextField fx:id="physicianlSignInTextField" layoutX="250.0" layoutY="200.0" prefHeight="25.0" prefWidth="300.0" AnchorPane.bottomAnchor="450.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="200.0">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <PasswordField fx:id="donorPasswordField" layoutX="64.0" layoutY="261.0" prefHeight="25.0" prefWidth="300.0">
+      <Label layoutX="350.0" layoutY="250.0" text="Password:" textFill="#0509f7d0" AnchorPane.bottomAnchor="400.0" AnchorPane.leftAnchor="365.0" AnchorPane.rightAnchor="365.0" AnchorPane.topAnchor="250.0">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="physicianPasswordField" layoutX="250.0" layoutY="300.0" prefHeight="25.0" prefWidth="300.0" AnchorPane.bottomAnchor="350.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="300.0">
          <font>
             <Font size="15.0" />
          </font>
       </PasswordField>
-      <Button fx:id="donorSignInButton" layoutX="181.0" layoutY="309.0" mnemonicParsing="false" text="Sign in">
+      <Button fx:id="physicianSignInButton" layoutY="350.0" mnemonicParsing="false" text="Sign in" textFill="#000000c1" AnchorPane.bottomAnchor="300.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="350.0">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Label layoutX="498.0" layoutY="106.0" text="Sign in as physician." textFill="#0509f7d0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Label layoutX="347.0" layoutY="88.0" text="Sign in page" AnchorPane.topAnchor="50.0">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Label>
-      <Separator layoutX="397.0" layoutY="106.0" orientation="VERTICAL" prefHeight="468.0" prefWidth="1.0" />
-      <Label layoutX="436.0" layoutY="165.0" text="Physicians ID No.:" textFill="#0509f7d0">
+      <Label layoutY="400.0" text="Forgot your password?" AnchorPane.bottomAnchor="250.0" AnchorPane.leftAnchor="320.0" AnchorPane.rightAnchor="320.0" AnchorPane.topAnchor="400.0">
          <font>
             <Font size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="physicianlSignInTextField" layoutX="436.0" layoutY="193.0" prefHeight="25.0" prefWidth="300.0">
+      <TextField fx:id="forgotPassEmailTextField" layoutY="450.0" prefHeight="25.0" prefWidth="300.0" promptText="please provide your email address" AnchorPane.bottomAnchor="200.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="450.0">
          <font>
             <Font size="15.0" />
          </font>
       </TextField>
-      <Label layoutX="436.0" layoutY="232.0" text="Password:" textFill="#0509f7d0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <PasswordField fx:id="physicianPasswordField" layoutX="436.0" layoutY="261.0" prefHeight="25.0" prefWidth="300.0">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </PasswordField>
-      <Button fx:id="physicianSignInButton" layoutX="553.0" layoutY="309.0" mnemonicParsing="false" text="Sign in" textFill="#000000c1">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Label layoutX="48.0" layoutY="403.0" text="Don`t have an account?">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <Button fx:id="createNewAccountButton" layoutX="210.0" layoutY="398.0" mnemonicParsing="false" text="Create new account.">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Button>
-      <Label layoutX="50.0" layoutY="465.0" text="Forgot your password?">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </Label>
-      <TextField fx:id="forgotPassEmailTextField" layoutX="48.0" layoutY="496.0" prefHeight="25.0" prefWidth="300.0" promptText="please provide your email address">
-         <font>
-            <Font size="15.0" />
-         </font>
-      </TextField>
-      <Button fx:id="sendNewPasswordButton" layoutX="48.0" layoutY="542.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="300.0" text="Send new password.">
+      <Button fx:id="sendNewPasswordButton" layoutY="500.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="300.0" text="Send new password." AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="250.0" AnchorPane.topAnchor="500.0">
          <font>
             <Font size="15.0" />
          </font>

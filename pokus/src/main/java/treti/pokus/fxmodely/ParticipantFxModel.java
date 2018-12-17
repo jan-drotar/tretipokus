@@ -126,7 +126,7 @@ public class ParticipantFxModel { // v poriadku
 		return gender.get();
 	}
 	public void setGender(String n) {
-		this.setGender(n);
+		this.gender.set(n);
 	}
 	public StringProperty genderProperty() {
 		return gender;
@@ -148,18 +148,18 @@ public class ParticipantFxModel { // v poriadku
 		
 	public Participant getDonor() {
 		
-		//if (getName() == null || getName().trim().isEmpty() ||
-		//		getSurname() == null || getSurname().trim().isEmpty() ||
-		//		getInsuranceID() == null || getInsuranceID().trim().isEmpty() ||
-		//		getBloodtype() == null|| getBloodtype().trim().isEmpty() ||
-		//		getEmail() == null || getEmail().trim().isEmpty() ||
-		//		getNewPassword() == null || getNewPassword().trim().isEmpty() || 
-		//		getRetypePassword() == null || getRetypePassword().trim().isEmpty() ||
-		 //       getDateOfBirth() == null || getDateOfBirth().until(LocalDate.now()).getYears() < 18 ||
-		//        /*getGender() == null || getGender().trim().isEmpty() ||*/ 
-		//        getWeight() == null || getWeight() < 60) {
-		//			return null;
-		//} else {
+		if (getName() == null || getName().trim().isEmpty() ||
+				getSurname() == null || getSurname().trim().isEmpty() ||
+				getInsuranceID() == null || getInsuranceID().trim().isEmpty() ||
+				getBloodtype() == null|| getBloodtype().trim().isEmpty() ||
+				getEmail() == null || getEmail().trim().isEmpty() ||
+				getNewPassword() == null || getNewPassword().trim().isEmpty() || 
+				getRetypePassword() == null || getRetypePassword().trim().isEmpty() ||
+		        getDateOfBirth() == null || /*getDateOfBirth().until(LocalDate.now()).getYears() < 18  || */
+		        getGender() == null || getGender().trim().isEmpty() || 
+		        getWeight() == null || getWeight() < 60) {
+					return null;
+		} else {
 			Participant d = new Participant();
 			d.setRole(Role.DONOR);
 			d.setBloodType(BloodType.fromString(getBloodtype()));
@@ -167,14 +167,14 @@ public class ParticipantFxModel { // v poriadku
 			d.setSurname(getSurname());
 			d.setInsuranceId(getInsuranceID());
 			d.setEmail(getEmail());
-	//		if (getNewPassword().equals(getRetypePassword())) {
-	//			d.setPassword(getNewPassword());
-	//		}///////////////////////////////////////////////////////////// inac chyba
+			if (getNewPassword().equals(getRetypePassword())) {
+				d.setPassword(getNewPassword());
+			}
 			d.setDateOfBirth(getDateOfBirth());
 			d.setGender(Gender.fromString(getGender()));
 			d.setWeight(getWeight());
 			
 			return d;
-	//	}
+		}
 	}
 }

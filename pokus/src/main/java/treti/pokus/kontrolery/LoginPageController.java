@@ -1,5 +1,8 @@
 package treti.pokus.kontrolery;
 
+import java.net.URL;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -8,74 +11,35 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
 public class LoginPageController {
-	
+
 	@FXML
-    private Button donorSignInButton;
-	
+	private ResourceBundle resources;
+
+	@FXML
+	private URL location;
+
+	@FXML
+	private TextField physicianlSignInTextField;
+
+	@FXML
+	private PasswordField physicianPasswordField;
+
 	@FXML
 	private Button physicianSignInButton;
 
 	@FXML
-	private Button createNewAccountButton;
-	
+	private TextField forgotPassEmailTextField;
+
 	@FXML
-    private Button sendNewPasswordButton;
-	
+	private Button sendNewPasswordButton;
 
-    @FXML
-    private TextField donorEmailSignInTextField;
+	@FXML
+	void initialize() {
+		assert physicianlSignInTextField != null : "fx:id=\"physicianlSignInTextField\" was not injected: check your FXML file 'LoginPage.fxml'.";
+		assert physicianPasswordField != null : "fx:id=\"physicianPasswordField\" was not injected: check your FXML file 'LoginPage.fxml'.";
+		assert physicianSignInButton != null : "fx:id=\"physicianSignInButton\" was not injected: check your FXML file 'LoginPage.fxml'.";
+		assert forgotPassEmailTextField != null : "fx:id=\"forgotPassEmailTextField\" was not injected: check your FXML file 'LoginPage.fxml'.";
+		assert sendNewPasswordButton != null : "fx:id=\"sendNewPasswordButton\" was not injected: check your FXML file 'LoginPage.fxml'.";
 
-    @FXML
-    private PasswordField donorPasswordField;
-
-    
-
-    @FXML
-    private TextField physicianlSignInTextField;
-
-    @FXML
-    private PasswordField physicianPasswordField;
-
-   
-
-    @FXML
-    private TextField forgotPassEmailTextField;
-
-    
-
-    @FXML
-    void initialize() {
-        donorSignInButton.setOnAction(new EventHandler<ActionEvent>() {
-			/////////////////////////////////////////////////////////////////////////// prihlasenie donora
-			@Override
-			public void handle(ActionEvent event) {
-				System.out.println("Donor Sign In Button.");
-				
-			}
-		});
-        physicianSignInButton.setOnAction(new EventHandler<ActionEvent>() {
-			///////////////////////////////////////////////////////////////////////// prihlasenie lekara
-			@Override
-			public void handle(ActionEvent event) {
-				System.out.println("Physician Sign In Button.");
-				
-			}
-		});
-        createNewAccountButton.setOnAction(new EventHandler<ActionEvent>() {
-			////////////////////////////////////////////////////////////////////// spustit DonorEditControl
-			@Override
-			public void handle(ActionEvent event) {
-				System.out.println("Create New Account.");
-				
-			}
-		});
-        sendNewPasswordButton.setOnAction(new EventHandler<ActionEvent>() {
-			////////////////////////////////////////////////////////////////////////poslat mail s novym heslom??? alebo reset????
-			@Override
-			public void handle(ActionEvent event) {
-				System.out.println("Send New Password.");
-				
-			}
-		});
-    }
+	}
 }

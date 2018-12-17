@@ -138,14 +138,17 @@ public class MysqlParticipantDao implements ParticipantDao {
 
 	@Override
 	public List<Participant> findPhysicianByInsuranceId(String id) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
 	public List<Participant> findPhysicianBySurname(String s) {
-		// TODO Auto-generated method stub
 		return null;
+	}
+
+	@Override
+	public long getLastId() {
+		return 0;
 	}
 
 }

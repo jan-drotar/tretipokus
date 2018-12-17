@@ -38,12 +38,11 @@ public class MysqlPhysicianDao implements PhysicianDao {
 
 	@Override
 	public void delete(long id) throws PhysicianNotFoundException {
-//		TODO: UNIMPLEMENTED
-//		jdbcTemplate.update("DELETE FROM physician WHERE participant_id = ?", id);
-//		int deleted = jdbcTemplate.update("DELETE FROM participant WHERE id = ?", id);
-//		if (deleted == 0) {
-//			throw new PhysicianNotFoundException(id);
-//		}
+		jdbcTemplate.update("DELETE FROM physician WHERE id = ?", id);
+		int deleted = jdbcTemplate.update("DELETE FROM physician WHERE id = ?", id);
+		if (deleted == 0) {
+			throw new PhysicianNotFoundException(id);
+		}
 	}
 
 	@Override

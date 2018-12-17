@@ -17,5 +17,7 @@ public interface ParticipantDao {
 
 	// find by insuranceID ///
 	List<Participant> findPhysicianBySurname(String s);
+	
+	long getLastId();
 
 }

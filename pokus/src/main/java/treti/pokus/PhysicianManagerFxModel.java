@@ -1,4 +1,4 @@
-package treti.pokus.fxmodely;
+package treti.pokus;
 
 import java.time.LocalDate;
 

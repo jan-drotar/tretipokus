@@ -298,7 +298,7 @@ public class PhysicianManagerController {
 					System.out.println(participant.toString());
 				}
 				
-				Donation newDonation = registeredDonation.getDonation();
+				Donation newDonation = registeredDonation.getDonation(donorDao.getLastId());
 				donationDao.addDonation(newDonation);
 				
 				donations = donationDao.getAll();
