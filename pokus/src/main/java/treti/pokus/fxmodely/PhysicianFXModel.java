@@ -10,6 +10,7 @@ public class PhysicianFXModel {
 	private Long id;
 	private Physician physician;
 	
+	private StringProperty login = new SimpleStringProperty();
 	private StringProperty name = new SimpleStringProperty();
 	private StringProperty surname = new SimpleStringProperty();
 	private StringProperty newPassword = new SimpleStringProperty();
@@ -21,6 +22,7 @@ public class PhysicianFXModel {
 
 	public PhysicianFXModel(Physician physician) {
 		this.physician = physician;
+		setLogin(physician.getName()+"."+physician.getSurname());
 		setName(physician.getName());
 		setSurname(physician.getSurname());
 		setNewPassword(physician.getPassword());
@@ -29,10 +31,23 @@ public class PhysicianFXModel {
 
 	public Physician getPhysician() {
 		Physician physician = new Physician();
+		physician.setLogin(physician.getName()+"."+physician.getSurname());
 		physician.setName(getName());
 		physician.setSurname(getSurname());
 		physician.setPassword(getNewPassword());
 		return physician;
+	}
+	
+	public String getLogin() {
+		return login.get();
+	}
+
+	public void setLogin(String login) {
+		this.login.set(login);
+	}
+
+	public StringProperty loginProperty() {
+		return this.login;
 	}
 
 	public String getNewPassword() {

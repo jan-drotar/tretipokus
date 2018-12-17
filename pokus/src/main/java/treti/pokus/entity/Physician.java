@@ -2,6 +2,7 @@ package treti.pokus.entity;
 
 public class Physician {
 	private Long id;
+	private String login;
 	private String password;
 	private String name;
 	private String surname;
@@ -10,8 +11,18 @@ public class Physician {
 	// nastavi pocet darovani
 	// nastavi datum darovania
 
+	
+	
 	public Long getId() {
 		return id;
+	}
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
 	}
 
 	public void setId(Long id) {

@@ -30,9 +30,6 @@ public class ParticipantMemoryDao implements ParticipantDao {
 	}
 	
 	// CREATE
-	/* (non-Javadoc)
-	 * @see treti.pokus.persistent.ParticipantDao#addParticipant(treti.pokus.entity.Participant)
-	 */
 	@Override
 	public void addParticipant(Participant p) {
 		if(p!=null) {
@@ -41,18 +38,12 @@ public class ParticipantMemoryDao implements ParticipantDao {
 		}
 	}
 	// READ
-	/* (non-Javadoc)
-	 * @see treti.pokus.persistent.ParticipantDao#getAll()
-	 */
 	@Override
 	public List<Participant> getAll(){
 		return participants;
 	}
 	
 	// find by surname ///
-	/* (non-Javadoc)
-	 * @see treti.pokus.persistent.ParticipantDao#findPhysicianByInsuranceId(java.lang.String)
-	 */
 	@Override
 	public List<Participant> findPhysicianByInsuranceId(String id) {
 		List<Participant> novy = new ArrayList<Participant>();
@@ -64,9 +55,6 @@ public class ParticipantMemoryDao implements ParticipantDao {
 		return novy;
 	}
 	// find by insuranceID ///
-	/* (non-Javadoc)
-	 * @see treti.pokus.persistent.ParticipantDao#findPhysicianBySurname(java.lang.String)
-	 */
 	@Override
 	public List<Participant> findPhysicianBySurname(String s) {
 		List<Participant> novy = new ArrayList<Participant>();
